@@ -1,0 +1,21 @@
+.equlizer-handlers__scale-wraper {
+   display: block;
+}
+
+.equlizer-handlers__scale {
+   display: flex;
+   flex-direction: column;
+   justify-content: space-around;
+   height: 16vh;
+   padding: 0px 0.5vw;
+   margin-bottom: 1vw;
+}
+
+.equlizer-handlers__scale-txt {
+   text-align: center;
+   color: var(--txt-controls-color);
+   font-size: var(--controls-font-size);
+   font-weight: 100;
+   letter-spacing: 1px;
+   text-shadow: 0 0 5px rgba(0, 0, 0, 1);
+}

@@ -1,0 +1,75 @@
+.equlizer-range__wraper {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   transform: rotate(-90deg);
+}
+
+/* Обертка для наложения тени на ползунок и центровки элемента */
+.equlizer-range__body {
+   position: relative;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   border-radius: 100px;
+   border: solid 0.2vw var(--range-body-border);
+   background: #3e3c49;
+}
+
+.equlizer-range-txt {
+   transform: rotate(90deg);
+   text-align: center;
+   color: var(--txt-controls-color);
+   font-size: var(--controls-font-size);
+   letter-spacing: 1px;
+   text-shadow: 0 0 10px rgba(0, 0, 0, 1);
+   padding-top: 10px;
+}
+
+/* Отменяем стандартные стили для ползунка*/
+.equlizer-range {
+   appearance: none;
+   height: 0.5vw;
+   width: 12vh;
+   border-radius: 10px;
+   border: 1px solid black;
+}
+
+/* Ползунок шкалы */
+.equlizer-range::-webkit-slider-thumb {
+   -webkit-appearance: none;
+   appearance: none;
+   cursor: pointer;
+   width: 1.5vw;
+   height: 1.5vw;
+   background: #42404d;
+   border: 0.15vw solid var(--range-body-thomb-border);
+   border-radius: 50%;
+
+   box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2), inset 0 4px 4px -2px rgba(255, 255, 255, 0.4),
+      inset 0 -8px 0px -2px rgba(0, 0, 0, 0.4), 0 0 2px 2px rgba(0, 0, 0, 0.4), 0px 2px 2px rgba(0, 0, 0, 0.5);
+}
+
+.equlizer-range::-moz-range-thumb {
+   -moz-appearance: none;
+   appearance: none;
+   cursor: pointer;
+   width: 28px;
+   height: 28px;
+   background: #42404d;
+   border: 0.15vw solid var(--range-body-thomb-border);
+   border-radius: 50%;
+
+   box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2), inset 0 4px 4px -2px rgba(255, 255, 255, 0.4),
+      inset 0 -8px 0px -2px rgba(0, 0, 0, 0.4), 0 0 2px 2px rgba(0, 0, 0, 0.4), 0px 2px 2px rgba(0, 0, 0, 0.5);
+}
+
+.equlizer-range:focus::-webkit-slider-thumb {
+   border: 0.2vw solid var(--neon-color-active-elem);
+   transition: 300ms;
+}
+
+.equlizer-range:focus::-moz-range-thumb {
+   border: 0.2vw solid var(--neon-color-active-elem);
+   transition: 300ms;
+}

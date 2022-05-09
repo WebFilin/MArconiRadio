@@ -1,0 +1,126 @@
+.search-stations__loaded-wraper {
+   width: 100%;
+   height: 100%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+.search-stations__loaded-body {
+   width: 25%;
+   height: 10%;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   overflow: hidden;
+
+   /* Время анимации для каждой пары элементов */
+   --time-active-el1:1.5s;
+   --time-active-el2:1s;
+   --time-active-el3:1.5s;
+   --time-active-el4:1s;
+   --time-active-el5:1.5s;
+   --time-active-el6:1s;   
+   --border-radius:8px;
+}
+
+.search-stations__loaded-body-elem-wraper{
+   height: 100%;
+   width: 5%;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+}
+
+.search-stations__loaded-body-elem{
+   height: 50%;
+   width: 100%;
+   background: var(--burger-menu-search-loading-background);
+   
+}
+
+.search-stations__loaded-body-elem-up1 {
+   animation: down var( --time-active-el1) infinite;
+   border-top-left-radius: var(--border-radius);
+   border-top-right-radius: var(--border-radius);
+}
+
+.search-stations__loaded-body-elem-down1 {
+   animation: up var( --time-active-el1) infinite;
+   border-bottom-left-radius: var(--border-radius);
+   border-bottom-right-radius: var(--border-radius);
+}
+
+.search-stations__loaded-body-elem-up2 {
+   animation: down var( --time-active-el2) infinite;
+   border-top-left-radius: var(--border-radius);
+   border-top-right-radius: var(--border-radius);
+}
+
+.search-stations__loaded-body-elem-down2 {
+   animation: up var( --time-active-el2) infinite;
+   border-bottom-left-radius: var(--border-radius);
+   border-bottom-right-radius: var(--border-radius);
+}
+
+.search-stations__loaded-body-elem-up3 {
+   animation: down var( --time-active-el3) infinite;
+   border-top-left-radius: var(--border-radius);
+   border-top-right-radius: var(--border-radius);
+}
+
+.search-stations__loaded-body-elem-down3 {
+   animation: up var( --time-active-el3) infinite;
+   border-bottom-left-radius: var(--border-radius);
+   border-bottom-right-radius: var(--border-radius);
+}
+
+.search-stations__loaded-body-elem-up4 {
+   animation: down var( --time-active-el4) infinite;
+   border-top-left-radius: var(--border-radius);
+   border-top-right-radius: var(--border-radius);
+}
+
+.search-stations__loaded-body-elem-down4 {
+   animation: up var( --time-active-el4) infinite;
+   border-bottom-left-radius: var(--border-radius);
+   border-bottom-right-radius: var(--border-radius);
+}
+
+.search-stations__loaded-body-elem-up5 {
+   animation: down var( --time-active-el5) infinite;
+   border-top-left-radius: var(--border-radius);
+   border-top-right-radius: var(--border-radius);
+}
+
+.search-stations__loaded-body-elem-down5 {
+   animation: up var( --time-active-el5) infinite;
+   border-bottom-left-radius: var(--border-radius);
+   border-bottom-right-radius: var(--border-radius);
+}
+
+.search-stations__loaded-body-elem-up6 {
+   animation: down var( --time-active-el6) infinite;
+   border-top-left-radius: var(--border-radius);
+   border-top-right-radius: var(--border-radius);
+}
+
+.search-stations__loaded-body-elem-down6 {
+   animation: up  var( --time-active-el6) infinite;
+   border-bottom-left-radius: var(--border-radius);
+   border-bottom-right-radius: var(--border-radius);
+}
+
+@keyframes up {
+   0%   { margin-bottom: 20px; }
+   16%  { margin-bottom: 100%; height: 10px; }
+   50% { margin-bottom: 0; }
+   100% { margin-bottom: 0; }
+ }
+
+ @keyframes down {
+   0%   { margin-top: 20px; }
+   16%  { margin-top: 100%; height: 10px; }
+   50% { margin-top: 0; }
+   100% { margin-top: 0; }
+ }

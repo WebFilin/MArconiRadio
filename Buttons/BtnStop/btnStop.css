@@ -1,0 +1,77 @@
+.btn__wraper-stop {
+   position: relative;
+   padding: 10px 10px;
+   width: 100%;
+   height: 100%;
+}
+
+.btn__stop-body {
+   cursor: pointer;
+}
+
+div.btn__stop-control div.btn__stop-stop {
+   width: 100%;
+   height: 100%;
+   background: #2d2f3b;
+   border-radius: 100%;
+}
+
+div.btn__stop-control div.btn__stop-stop {
+   width: 4vw;
+   height: 4vw;
+   display: inline-block;
+   border-radius: 100%;
+   z-index: 0;
+   border: 2px solid var(--neon-color-active-elem);
+   border-right-color: transparent;
+   transform: rotate(90deg);
+
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.btn__stop-button {
+   position: absolute;
+   width: 3.5vw;
+   height: 3.5vw;
+   display: inline-block;
+   background: #312f3a, var(--bacground-img);
+   border-radius: 100%;
+   overflow: hidden;
+
+   text-align: center;
+   line-height: 3.5vw;
+   font-size: 1vw;
+   color: var(--txt-controls-color);
+   background: var(--bacground-img);
+   box-shadow: inset 0 0 85px rgba(0, 0, 0, 0.2), inset 0 4px 4px -2px rgba(255, 255, 255, 0.4),
+      inset 0 -12px 10px -5px rgba(0, 0, 0, 0.4), 0 0 2px 5px rgba(0, 0, 0, 0.4), 1px 5px 10px rgba(0, 0, 0, 0.7);
+
+   transform: rotate(-90deg);
+
+   transition: 0.5s;
+}
+
+.btn__stop-button::before {
+   content: "";
+   display: block;
+   width: 100%;
+   height: 100%;
+   position: absolute;
+   left: 0;
+   top: 0;
+   background: #3e3c49;
+   opacity: 0.4;
+}
+
+.btn__stop-slash {
+   font-weight: 900;
+   text-shadow: 10px 0px 30px black;
+}
+
+.btn__stop-animo {
+   color: var(--neon-color-active-elem);
+   box-shadow: 0 0 0 rgba(0, 0, 0, 0.3);
+   transition: 0.5s;
+}

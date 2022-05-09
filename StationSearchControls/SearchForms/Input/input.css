@@ -1,0 +1,20 @@
+.search-forms__input-wraper {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   margin: 5px;
+}
+
+.search-forms__input-title{
+    padding: 0px 0px 5px 0px;
+   color: var(--burger-menu-search-items-txt-color);
+}
+
+.search-forms__input-error {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   padding: 5px 0px 5px 0px;
+   color: var(--burger-menu-search-input-error-color);
+}
+

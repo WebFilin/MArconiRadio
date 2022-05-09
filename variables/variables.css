@@ -1,0 +1,61 @@
+:root {
+   --bacground-app: #474553;
+   --bacground-img: url(../img/texture_btn.jpg);
+
+   --logo-front-style: "Roboto", sans-serif;
+
+   --neon-color-code: 5, 212, 244;
+   --neon-color: rgba(5, 212, 244, 0.2);
+   --neon-color-active-elem: rgba(5, 212, 244, 0.7);
+
+   --txt-controls-color: rgba(255, 255, 255, 0.4);
+   --controls-font-size: 0.8vw;
+
+   --display-range-color: rgba(48, 213, 200, 0.2);
+   --display-border: #05d4f433;
+   --display-border-3D-elem: #848482;
+   --display-font-shadow: 0 0 6px rgba(202, 228, 225, 0.48), 0 0 0px rgba(202, 228, 225, 0.6),
+      0px 0 0px rgba(30, 132, 242, 0.8), 0 0 2px rgba(30, 132, 242, 0.4), 0 0 3px rgba(30, 132, 242, 0.4),
+      0 0 0px rgba(30, 132, 242, 0.9);
+   --display-font-style: Tahoma, "Geneva", sans-serif;
+   --display-font-color: rgba(var(--neon-color-code), 0.6);
+   --display-font-size: 1vw;
+
+   --color-power-sound100: rgba(255, 0, 0.3);
+   --color-power-sound70: rgba(255, 166, 0.5);
+   --color-power-sound60: rgba(255, 255, 0, 0.8);
+   --color-power-sound50: rgba(0, 128, 0, 0.8);
+   --color-power-sound20: rgba(5, 212, 244, 0.5);
+   --range-bars-color-opasity: 0.2;
+
+   --range-background: rgba(244, 89, 5, 0.3);
+   --range-body-border: rgba(5, 212, 244, 0.2);
+   --range-body-thomb-border: rgba(5, 212, 244, 0.3);
+
+   --burger-menu-body-radius: 10px;
+   --burger-menu-body-background: var(--display-border);
+   --burger-menu-body-line-title: rgba(5, 212, 244, 0.3);
+   --burger-menu-body-txt-color: rgba(5, 212, 244, 0.5);
+   --burger-menu-body-txt-active: rgba(252, 255, 255, 0.954);
+
+   --burger-menu-body-txt-color-active-elem: rgba(5, 212, 244, 0.8);
+   --burger-menu-body--font-size: 1vw;
+   --burger-menu-body-title-color: #8a4723;
+   --burger-menu-body-title-font-family: "Monoton";
+
+   --burger-menu-search-items-txt-color: whitesmoke;
+   --burger-menu-search-items-txt-size: 16px;
+   --burger-menu-search-items-btn-border: rgba(5, 212, 244, 0.3);
+   --burger-menu-search-items-btn-border-active: rgba(5, 212, 244, 0.8);
+   --burger-menu-search-items-btn-border-elem-active: rgba(5, 212, 244, 0.35);
+   --burger-menu-search-items-btn-elems: rgba(5, 212, 244, 0.6);
+   --burger-menu-search-items-star-voits-color: rgba(5, 212, 244, 0.45);
+   --burger-menu-search-items-star-txt-color: rgb(245, 245, 245);
+   --burger-menu-search-loading-border:rgba(5, 212, 244, 0.4);
+   --burger-menu-search-loading-background:rgba(5, 212, 244, 0.4);
+   --burger-menu-search-input-error-color:  rgba(245, 115, 10, 0.708);
+
+   --burger-menu-search-paginations-btn:rgba(5, 212, 244, 0.2);
+   --burger-menu-search-paginations-btn-active:rgba(165, 166, 166, 0.4);
+   --burger-menu-search-paginations-arrow-active:rgba(5, 212, 244, 0.6);
+}

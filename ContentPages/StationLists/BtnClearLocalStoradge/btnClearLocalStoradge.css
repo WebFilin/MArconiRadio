@@ -1,0 +1,38 @@
+.station__lists-btn-clear-wraper{
+
+}
+
+.station__lists-btn-clear-body{
+   background-color:transparent;
+   color: var( --burger-menu-body-txt-active);
+   font-size: 18px;
+   outline: none;
+   width: 100px;
+   height: 40px;
+   margin-bottom: 10px;
+   border-radius:8px;
+  border: 2px solid var(--burger-menu-search-items-btn-border);
+  box-shadow: 4px 3px 5px rgb(55, 53, 53);
+  transition: .3s;
+}
+
+.station__lists-btn-clear-body-disabled{
+  background-color:transparent;
+  color: grey;
+  font-size: 18px;
+  outline: none;
+  width: 100px;
+  height: 40px;
+  margin-bottom: 10px;
+  border-radius:8px;
+ border: 2px solid grey;
+ transition: .3s;
+}
+
+.station__lists-btn-clear-body:hover{
+ border: 2px solid var( --burger-menu-search-items-btn-border-active);
+}
+
+.station__lists-btn-clear-body:active{
+  box-shadow: 0px 0px 0px rgb(86, 85, 85);
+ }

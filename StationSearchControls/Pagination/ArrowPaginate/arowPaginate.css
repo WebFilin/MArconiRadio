@@ -1,0 +1,54 @@
+.station__control-pagination-arrow-wraper {
+  
+}
+
+.station__control-pagination-arrow-wraper > svg {
+   width: 100px;
+   height: 30px;
+   cursor: pointer;
+   overflow: visible;
+}
+.astation__control-pagination-arrow-wraper > svg polygon, 
+.station__control-pagination-arrow-wraper > svg path {
+   transition: all 0.5s cubic-bezier(0.2, 1, 0.3, 1);
+   fill: var(--burger-menu-search-paginations-btn);
+}
+.station__control-pagination-arrow-wraper > svg:hover polygon, 
+.station__control-pagination-arrow-wraper > svg:hover path {
+   transition: all 1s cubic-bezier(0.2, 1, 0.3, 1);
+   fill: var(--burger-menu-search-paginations-arrow-active);
+}
+.station__control-pagination-arrow-wraper > svg:hover .arrow-6-pl {
+   animation: arrow-6-anim 1s cubic-bezier(0.2, 1, 0.3, 1) infinite;
+   fill: var(--burger-menu-search-paginations-arrow-active);
+}
+.station__control-pagination-arrow-wraper > svg:hover .arrow-6-pl-fixed {
+   animation: arrow-6-fixed-anim 1s cubic-bezier(0.2, 1, 0.3, 1) infinite;
+   fill: var(--burger-menu-search-paginations-arrow-active);
+}
+
+@keyframes arrow-6-anim {
+   0% {
+       opacity: 1;
+       transform: translateX(0);
+   }
+   5% {
+       transform: translateX(-0.1rem);
+   }
+   100% {
+       transform: translateX(1rem);
+       opacity: 0;
+   }
+}
+
+@keyframes arrow-6-fixed-anim {
+   5% {
+       opacity: 0;
+   }
+   20% {
+       opacity: 0.4;
+   }
+   100% {
+       opacity: 1;
+   }
+}

@@ -1,0 +1,17 @@
+.not-add-stations__wraper {
+   position: absolute;
+   left: 0;
+  
+   display: flex;
+   justify-content: center;
+   align-items: center;
+
+}
+.not-add-stations__body {
+
+   margin-left: 30vw;
+   margin-top: 35vh;
+
+   color: var(--burger-menu-search-items-txt-color);
+   font-size: 34px;
+}

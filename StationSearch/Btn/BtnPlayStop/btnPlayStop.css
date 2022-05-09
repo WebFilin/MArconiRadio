@@ -1,0 +1,130 @@
+.search-stations-items__btn-play-stop-wraper {
+   position: relative;
+   cursor: pointer;
+   width: 50px;
+   height: 50px;
+   border-radius: 50%;
+   border: 2px solid var(--burger-menu-search-items-btn-border);
+
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   color:var(--burger-menu-search-items-txt-color);
+}
+
+.search-stations-items__btn-play-stop-wraper:hover{
+   border: 2px solid var( --burger-menu-search-items-btn-border-active);
+}
+
+.items__btn-play-stop-body{
+   position: relative;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.items__btn-play-body{
+   position: absolute;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   
+}
+
+.items__btn-play-body::after{
+   content: ''; 
+   position: absolute; 
+   /* Прозрачная граница */
+   border: 14px solid transparent; 
+   /* Добавляем треугольник */
+   border-top: 22px solid  var(--burger-menu-search-items-btn-elems); 
+   transform: rotate(-90deg) translateY(12px) ;
+   animation: animoPlay .6s linear;
+}
+
+.items__btn-pause-body{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   animation: animoPause .6s linear;
+}
+
+.items__btn-pause-body-elem{
+   width: 6px;
+   height: 22px;
+   background: var(--burger-menu-search-items-btn-elems) ;
+   margin: 5px;
+   border-radius: 5px;
+}
+
+.search-stations__items-title-btn-loading{
+   display: none;
+   position: absolute;
+   width: 50%;
+   height: 100%;
+   border-radius: 100%;
+}
+
+.search-stations__items-title-btn-loading-elem{
+   position: absolute;
+   width: 12px;
+   height: 12px;
+   background:var( --burger-menu-search-items-btn-border-elem-active);
+   border-radius: 50%;
+   margin-top: -6px;
+}
+
+.search-stations__items-title-btn-loading-elem2{
+   position: absolute;
+   width: 8px;
+   height: 8px;
+   background:var( --burger-menu-search-items-btn-border-elem-active);
+   border-radius: 50%;
+   margin: 4px 0px 0px -11px;
+}
+
+.search-stations__items-title-btn-loading-elem3{
+   position: absolute;
+   width: 6px;
+   height: 6px;
+   background:var( --burger-menu-search-items-btn-border-elem-active);
+   border-radius: 50%;
+   margin: 15px 0px 0px -15px;
+}
+
+
+.search-stations__items-title-btn-loading-active{
+   display: block;
+   animation: animoLoad 1.5s infinite;
+}
+
+@keyframes animoLoad {
+0% {
+   transform: rotate(0deg);
+}
+
+100% {
+   transform: rotate(360deg);
+}
+
+}
+
+@keyframes animoPause {
+   0% {
+      transform: scale(0) rotate(180deg);
+   }
+      
+   100% {
+      transform: scale(1);
+   }
+   }
+
+   @keyframes animoPlay {
+      0% {
+         transform: scale(0) rotate(0deg) translateY(12px);
+      }
+         
+      100% {
+         transform: scale(1)  rotate(-90deg) translateY(12px);
+      }
+      }

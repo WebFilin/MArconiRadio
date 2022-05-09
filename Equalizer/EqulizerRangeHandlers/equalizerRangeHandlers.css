@@ -1,0 +1,14 @@
+.equlizer-handlers__wraper {
+   display: block;
+}
+
+.equlizer-handlers__body {
+   width: 47vw;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.equlizer-handlers__element {
+   width: 7%;
+}

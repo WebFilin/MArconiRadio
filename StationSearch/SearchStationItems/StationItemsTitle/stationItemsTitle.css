@@ -1,0 +1,17 @@
+.search-stations__items-title-body {
+   display: flex;
+   justify-content: space-around;
+   align-items: center;
+}
+.search-stations__items-title-img {
+   width: 80px;
+   height: 80px;
+   min-width: 30px;
+   min-height: 30px;
+   border-radius: 5px;
+   margin: 5px;
+}
+.search-stations__items-title-txt {
+   margin-left: 10px;
+   color: var(--burger-menu-search-items-txt-color);
+}

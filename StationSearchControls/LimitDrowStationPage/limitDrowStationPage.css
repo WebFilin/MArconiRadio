@@ -1,0 +1,12 @@
+.station__control-limit-drow-wraper{
+   color: aliceblue;
+   margin: 10px 0px 5px 0px;
+}
+
+.station__control-limit-drow-body{
+   padding: 5px;
+}
+
+.station__control-limit-drow-body > h2{
+   margin-bottom: 10px;
+}

@@ -1,0 +1,33 @@
+.station__lists-wraper {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.station__lists-wraper-btn {
+ widows: 100%;
+ height: auto;
+ display: flex;
+}
+
+.station__lists-btn-clear{
+  display: inline-block;
+}
+
+.station__lists-body {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: space-between;
+  justify-content: center;
+}
+
+.station__lists-btn-sort {
+  color: var(--burger-menu-search-items-txt-color);
+  margin: 0px 0px 0px 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

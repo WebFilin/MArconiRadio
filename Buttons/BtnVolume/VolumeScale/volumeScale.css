@@ -1,0 +1,62 @@
+.btn__volume-scale-wraper {
+   position: absolute;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   width: 15vw;
+   vertical-align: middle;
+   overflow: hidden;
+}
+
+.btn__volume-scale {
+   display: inline-block;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   margin-bottom: 28px;
+}
+
+.btn__volume-scale-elems {
+   fill: none;
+}
+
+.btn__volume-scale-elems-0 {
+   fill: rgba(var(--neon-color-code), 0.4);
+}
+
+.btn__volume-scale-elems-1 {
+   fill: rgba(var(--neon-color-code), 0.4);
+}
+
+.btn__volume-scale-elems-2 {
+   fill: rgba(var(--neon-color-code), 0.5);
+}
+
+.btn__volume-scale-elems-3 {
+   fill: rgba(var(--neon-color-code), 0.5);
+}
+
+.btn__volume-scale-elems-4 {
+   fill: rgba(var(--neon-color-code), 0.6);
+}
+
+.btn__volume-scale-elems-5 {
+   fill: rgba(var(--neon-color-code), 0.6);
+}
+
+.btn__volume-scale-elems-6 {
+   fill: rgba(var(--neon-color-code), 0.8);
+}
+
+.btn__volume-scale-elems-7 {
+   fill: rgba(var(--neon-color-code), 0.8);
+}
+
+.btn__volume-scale-elems-8 {
+   fill: rgba(var(--neon-color-code), 1);
+}
+
+.btn__volume-scale-elems-9 {
+   fill: rgba(var(--neon-color-code), 1);
+}

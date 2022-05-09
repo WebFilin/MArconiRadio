@@ -1,0 +1,10 @@
+.equalizer-wraper {
+   width: 47vw;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.equalizer__body {
+   display: block;
+}

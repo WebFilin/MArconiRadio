@@ -1,0 +1,22 @@
+.station__control-wraper {
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
+}
+
+.station__control-navigations{
+   width: 90%;
+   height: auto;
+
+}
+
+.station__control-navigations-items-amount{
+   position: relative;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-left: 10px;
+}
+
+

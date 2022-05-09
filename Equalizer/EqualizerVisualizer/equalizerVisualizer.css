@@ -1,0 +1,29 @@
+.equalizer-visual__wraper {
+   width: 47vw;
+   height: 100%;
+   display: flex;
+   justify-content: center;
+   align-items: flex-end;
+   margin: 0px 0px 10px 0px;
+}
+
+.equalizer-visual__body {
+   width: 47vw;
+   height: auto;
+   display: flex;
+   justify-content: center;
+   align-items: flex-end;
+}
+
+.equalizer-visual__body-wraper-sound-power {
+   display: block;
+   height: auto;
+}
+
+.equalizer-visual__body-bars-wraper {
+   width: 100%;
+   height: auto;
+   display: flex;
+   justify-content: space-around;
+   align-items: center;
+}
