@@ -1,4 +1,4 @@
-![Image alt](https://github.com/WebFilin/Radio/blob/63205addedaebb83382b478076cc2bc1343dc660/ScreenShots/radio.png)
+![Image alt](https://github.com/WebFilin/RadioMarconi/blob/main/ScreenShots/radio.png)
 
 # Marconi Radio project
 
