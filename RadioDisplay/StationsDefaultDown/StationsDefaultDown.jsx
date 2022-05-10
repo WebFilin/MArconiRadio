@@ -6,13 +6,13 @@ import Station from '../Station/Station';
 
 function StationsDefaultDown(props) {
    return (
-      <div className="radio-display__station-wraper-down">
+      <>
          <Station dot={true} min={6} max={10} contryName={"Switzerland"} />
          <Station dot={true} min={15} max={18} contryName={"Germany"} />
          <Station dot={true} min={25} max={27} contryName={"Italy"} />
          <Station dot={true} min={32} max={36} contryName={"Czechia"} />
          <Station dot={true} min={41} max={45} contryName={"Panama"} />
-      </div>
+      </>
    );
 }
 

@@ -1,7 +1,26 @@
-.add-stations-lists-up__wraper{
-   padding: 10px;
+.add-stations-lists__wraper{
+  width: 100%;
+  height: 100%;
    color: whitesmoke;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.radio-display__station-wraper-up{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+}
+
+.radio-display__station-wraper-down{
+  width: 80%;
   display: flex;
   justify-content: space-around;
   align-items: center;
+  margin-left: -3%;
+  padding: 5px;
 }

@@ -1,6 +1,7 @@
 .radio-display__display {
    position: relative;
    width: 50vw;
+  
    border: 8px solid var(--display-border);
    background: #3e3c49;
    border-radius: 15px;
@@ -11,6 +12,7 @@
    flex-direction: column;
    justify-content: center;
    width: 100%;
+   height: 12vh;
    overflow: hidden;
 }
 
@@ -39,7 +41,6 @@
    background: var(--display-range-color);
    z-index: 2;
 }
-
 
 
 

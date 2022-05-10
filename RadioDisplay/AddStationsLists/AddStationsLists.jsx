@@ -6,7 +6,7 @@ import "./addStationsLists.css"
 
 import ItemsAddStations from '../ItemsAddStations/ItemsAddStations';
 
-function AddStationsListsUp({ limitMax, limitMin }) {
+function AddStationsListsUp() {
 
    const [arrDrow, setArrDrow] = React.useState(null)
 
@@ -67,18 +67,26 @@ function AddStationsListsUp({ limitMax, limitMin }) {
 
    return (
 
-      <div className='add-stations-lists-up__wraper'>
-         {arrDrow &&
+      <div className='add-stations-lists__wraper'>
 
+         {arrDrow &&
             <>
-               <ItemsAddStations contryName={`${arrDrow[0].country}`} url={arrDrow[0].url} min={2} max={5} dot={false} />
-               <ItemsAddStations contryName={`${arrDrow[1].country}`} url={arrDrow[1].url} min={11} max={14} dot={false} />
-               <ItemsAddStations contryName={`${arrDrow[2].country}`} url={arrDrow[2].url} min={20} max={22} dot={false} />
-               <ItemsAddStations contryName={`${arrDrow[3].country}`} url={arrDrow[3].url} min={28} max={31} dot={false} />
-               <ItemsAddStations contryName={`${arrDrow[3].country}`} url={arrDrow[3].url} min={37} max={40} dot={false} />
+               <div className="radio-display__station-wraper-up">
+                  <ItemsAddStations contryName={`${arrDrow[0].country}`} url={arrDrow[0].url} min={2} max={5} dot={false} />
+                  <ItemsAddStations contryName={`${arrDrow[1].country}`} url={arrDrow[1].url} min={11} max={14} dot={false} />
+                  <ItemsAddStations contryName={`${arrDrow[2].country}`} url={arrDrow[2].url} min={20} max={24} dot={false} />
+                  <ItemsAddStations contryName={`${arrDrow[3].country}`} url={arrDrow[3].url} min={30} max={34} dot={false} />
+                  <ItemsAddStations contryName={`${arrDrow[4].country}`} url={arrDrow[3].url} min={40} max={44} dot={false} />
+               </div>
+
+               <div className="radio-display__station-wraper-down">
+                  <ItemsAddStations contryName={`${arrDrow[5].country}`} url={arrDrow[5].url} min={7} max={10} dot={false} />
+                  <ItemsAddStations contryName={`${arrDrow[6].country}`} url={arrDrow[6].url} min={16} max={20} dot={false} />
+                  <ItemsAddStations contryName={`${arrDrow[7].country}`} url={arrDrow[7].url} min={25} max={29} dot={false} />
+                  <ItemsAddStations contryName={`${arrDrow[8].country}`} url={arrDrow[8].url} min={35} max={40} dot={false} />
+               </div>
             </>
          }
-
 
       </div>
    );

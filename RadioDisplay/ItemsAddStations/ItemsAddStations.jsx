@@ -5,6 +5,8 @@ import { useSelector, useDispatch } from 'react-redux';
 // Редюсер управления аудио
 import { getUrlAudio } from "../../store/urlAudioSourseReduser"
 
+import "./itemsAddStations.css"
+
 function ItemsAddStations({ contryName, url, min, max, dot }) {
 
    const stationRef = React.useRef()
@@ -20,28 +22,29 @@ function ItemsAddStations({ contryName, url, min, max, dot }) {
       let station = stationRef.current
 
       if (valueTuning >= min && valueTuning <= max) {
-         station.classList.add("radio__display-station-neon")
+         station.classList.add("radio__display-station-items_add-neon")
          dispatch(getUrlAudio(url))
       }
 
       else {
-         station.classList.remove("radio__display-station-neon")
+         station.classList.remove("radio__display-station-items_add-neon")
       }
 
    }, [valueTuning, min, max, dot, dispatch, url])
 
    return (
 
-      <div className="radio__station-wraper ">
+      <div className="radio__display-station-items-wraper ">
 
          {/* прицел для ползунка выбора станции - в этом месте включается музыка */}
-         {dot === true ? <div className='radio__station-point_range'></div> : null}
+         {dot === true ? <div className='radio__station-items_point_range'></div> : null}
 
-         <div ref={stationRef} className="radio__station-body">
-            {contryName}
+         <div ref={stationRef} className="radio__station-items-body">
+            {contryName === "undefined" ? "" : contryName}
+
          </div>
 
-         {dot === false ? <div className='radio__station-point_range'></div> : null}
+         {dot === false ? <div className='radio__station-items-point_range'></div> : null}
 
       </div >
    );
