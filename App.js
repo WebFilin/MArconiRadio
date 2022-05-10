@@ -83,7 +83,7 @@ function App() {
       </main>
 
       <RadioController playPauseSwitch={playStopSwitch} />
-      <StationListsDefault />
+      {/* <StationListsDefault /> */}
 
       {/* Комопнент воспроизведения звука, soundPower громкость в % до 100 */}
       <AudioController soundPower={50} />

@@ -11,6 +11,7 @@ function MenuNav({ header, items }) {
       <div className='menu-nav__wraper' onClick={elem => elem.stopPropagation()} >
          <h2 className="menu-nav__header">{header}</h2>
          <ul className='menu-nav__items'>
+
             {/* Создаем меню ссылок навигации */}
             {items.map((item) =>
                <li key={item.value} >

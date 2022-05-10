@@ -1,0 +1,7 @@
+.add-stations-lists-up__wraper{
+   padding: 10px;
+   color: whitesmoke;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}

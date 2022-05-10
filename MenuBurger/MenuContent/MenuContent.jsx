@@ -12,7 +12,7 @@ import StationLists from '../../ContentPages/StationLists/StationLists';
 
 import NotFoundPage from "../../ContentPages/NotFoundPage/NotFoundPage"
 
-function MenuContent(props) {
+function MenuContent() {
    return (
       <div className='menu__content-wraper'>
          {/* Подключаем компоненты в навигацию */}

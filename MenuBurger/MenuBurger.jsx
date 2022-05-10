@@ -8,7 +8,11 @@ import MenuBtn from "./MenuBtn/MenuBtn"
 
 import MenuContent from './MenuContent/MenuContent';
 
-function MenuBurger(props) {
+import { useDispatch } from 'react-redux';
+
+import { getBurgerOpenState } from "../store/isBurgerOpen"
+
+function MenuBurger() {
 
    // Обьект для формирования меню
    const items = [
@@ -19,6 +23,12 @@ function MenuBurger(props) {
 
    // Открываем - закрываем меню
    const [menuActive, setMenuActive] = React.useState(false)
+
+   // передаем обьект через redux
+   const dispatch = useDispatch()
+
+   // Передаем состояние открытия или закрытия меню бургер
+   dispatch(getBurgerOpenState(menuActive))
 
    return (
       <div className='burger-menu__wraper' >
@@ -35,6 +45,7 @@ function MenuBurger(props) {
                <MenuContent />
             </section>
          </div>
+
       </div>
    );
 }
