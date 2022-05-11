@@ -31,14 +31,13 @@ function Station({ contryName, min, max, dot }) {
       <div className="radio__station-wraper ">
 
          {/* прицел для ползунка выбора станции - в этом месте включается музыка */}
-         {dot === true ? <div className='radio__station-point_range'></div> : null}
+         {dot === "up" && <div className='radio__station-point_range'></div>}
 
          <div ref={stationRef} className="radio__station-body">
-            {contryName}
+            {contryName && contryName}
          </div>
 
-         {dot === false ? <div className='radio__station-point_range'></div> : null}
-
+         {dot === "down" && <div className='radio__station-point_range'></div>}
       </div >
    );
 }

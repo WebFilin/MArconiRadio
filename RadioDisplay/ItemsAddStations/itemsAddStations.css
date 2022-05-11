@@ -1,4 +1,4 @@
-.radio__display-station-items-wraper {
+.add__station-items-wraper {
    width: 20%;
    display: flex;
    flex-direction: column;
@@ -7,7 +7,7 @@
 }
 
 
-.radio__station-items-body {
+.add__station-items-body {
    display: inline-block;
    font-size: var(--display-font-size);
    font-family: var(--display-font-style);
@@ -16,7 +16,16 @@
    z-index: 1;
    overflow: hidden;
 }
-.radio__station-items-point_range {
+
+.add__station-items_point_range-up {
+   width: 0.6vw;
+   height: 0.3vw;
+   border-radius: 50%;
+   background: var(--display-font-color);
+   margin: 2px 0px;
+}
+
+.add__station-items-point_range-down {
    width: 0.6vw;
    height: 0.3vw;
    border-radius: 50%;

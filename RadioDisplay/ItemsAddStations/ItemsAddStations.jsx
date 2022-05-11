@@ -34,17 +34,16 @@ function ItemsAddStations({ contryName, url, min, max, dot }) {
 
    return (
 
-      <div className="radio__display-station-items-wraper ">
+      <div className="add__station-items-wraper ">
 
          {/* прицел для ползунка выбора станции - в этом месте включается музыка */}
-         {dot === true ? <div className='radio__station-items_point_range'></div> : null}
+         {dot === "up" && <div className='add__station-items_point_range-up'></div>}
 
-         <div ref={stationRef} className="radio__station-items-body">
-            {contryName === undefined  ? "" : contryName}
-
+         <div ref={stationRef} className="add__station-items-body">
+            {contryName && contryName}
          </div>
 
-         {dot === false ? <div className='radio__station-items-point_range'></div> : null}
+         {dot === "down" && <div className='add__station-items-point_range-down'></div>}
 
       </div >
    );
