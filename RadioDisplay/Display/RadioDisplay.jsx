@@ -45,6 +45,7 @@ function RadioDisplay() {
                   <div className="radio-display__back-down"></div>
                </div>
 
+               {/* Переключаем списки станций выбраны они пользователем или предустановлены */}
                {localStorage.length > 0 ? <AddStationsLists /> : <StationsDefaultList />}
 
             </div>

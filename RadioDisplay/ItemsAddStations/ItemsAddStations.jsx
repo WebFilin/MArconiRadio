@@ -2,10 +2,12 @@ import React from 'react';
 
 import { useSelector, useDispatch } from 'react-redux';
 
+import "./itemsAddStations.css"
+
 // Редюсер управления аудио
 import { getUrlAudio } from "../../store/urlAudioSourseReduser"
 
-import "./itemsAddStations.css"
+import StationNameHandler from '../../SecondaryUtils/StationCountryHandler';
 
 function ItemsAddStations({ contryName, url, min, max, dot }) {
 
@@ -40,7 +42,7 @@ function ItemsAddStations({ contryName, url, min, max, dot }) {
          {dot === "up" && <div className='add__station-items_point_range-up'></div>}
 
          <div ref={stationRef} className="add__station-items-body">
-            {contryName && contryName}
+            {contryName && <StationNameHandler countryName={contryName} />}
          </div>
 
          {dot === "down" && <div className='add__station-items-point_range-down'></div>}
