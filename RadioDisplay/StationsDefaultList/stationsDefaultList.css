@@ -1,0 +1,25 @@
+.default-stations-lists__wraper {
+   width: 100%;
+   height: 100%;
+    color: whitesmoke;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-around;
+   align-items: center;
+}
+.default-stations__wraper-up {
+   width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+  margin-right: 8%;
+}
+.default-stations__wraper-down {
+   width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 5%;
+  padding: 5px;
+}

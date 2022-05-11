@@ -40,7 +40,7 @@ function ItemsAddStations({ contryName, url, min, max, dot }) {
          {dot === true ? <div className='radio__station-items_point_range'></div> : null}
 
          <div ref={stationRef} className="radio__station-items-body">
-            {contryName === "undefined" ? "" : contryName}
+            {contryName === undefined  ? "" : contryName}
 
          </div>
 

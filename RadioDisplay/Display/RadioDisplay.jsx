@@ -2,9 +2,7 @@ import React from 'react';
 
 import { useSelector } from 'react-redux';
 
-import StationsDefaultUp from "../StationsDefaultUp/StationsDefaultUp"
-
-import StationsDefaultDown from "../StationsDefaultDown/StationsDefaultDown"
+import StationsDefaultList from "../StationsDefaultList/StationsDefaultList"
 
 import AddStationsLists from '../AddStationsLists/AddStationsLists';
 
@@ -47,14 +45,7 @@ function RadioDisplay() {
                   <div className="radio-display__back-down"></div>
                </div>
 
-
-               <AddStationsLists />
-             
-               {/* {openBurger ? "роботает" : <StationsDefaultUp />} */}
-
-               {/* <StationsDefaultDown /> */}
-
-
+               {localStorage.length > 0 ? <AddStationsLists /> : <StationsDefaultList />}
 
             </div>
          </div>
