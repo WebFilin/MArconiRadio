@@ -102,6 +102,8 @@ h6 {
    width: 100vw;
    height: 100vh;
    background: var(--bacground-app);
+   min-width: 850px;
+   min-height: 700px;
 }
 
 .app-wraper__main {
@@ -115,7 +117,7 @@ h6 {
    flex-direction: column;
    justify-content: center;
    align-items: center;
-   width: 50vw;
+   /* width: 50vw; */
 }
 
 .app-wraper__menu-burger {

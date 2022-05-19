@@ -19,7 +19,7 @@
       0 0 0px rgba(30, 132, 242, 0.9);
    --display-font-style: Tahoma, "Geneva", sans-serif;
    --display-font-color: rgba(var(--neon-color-code), 0.6);
-   --display-font-size: 1vw;
+   --display-font-size: 2vh;
 
    --color-power-sound100: rgba(255, 0, 0.3);
    --color-power-sound70: rgba(255, 166, 0.5);

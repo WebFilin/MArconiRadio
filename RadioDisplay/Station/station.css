@@ -4,16 +4,19 @@
    flex-direction: column;
    justify-content: center;
    align-items: center;
+   /* border: 2px solid red; */
 }
 
 .radio__station-body {
-   display: inline-block;
+   /* display: inline-block; */
    font-size: var(--display-font-size);
    font-family: var(--display-font-style);
    color: var(--display-font-color);
    text-transform: uppercase;
    z-index: 1;
    overflow: hidden;
+   min-width: 10%;
+   min-height: 10%;
 }
 
 .radio__display-station-neon {
