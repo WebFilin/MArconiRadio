@@ -37,7 +37,7 @@ function AudioController({ soundPower }) {
 
          // Старт воспроизведения по готовности
          obj.addEventListener("canplay", () => {
-            if (playPauseSwitch) {
+            if (playPauseSwitch && urlAudio) {
                obj.play()
             }
 
