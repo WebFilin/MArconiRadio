@@ -45,7 +45,7 @@ function StationListsDefault() {
 
       else if (valueScroll === 21) {
          setCountry("JP")
-         setNumStation(2)
+         setNumStation(1)
       }
 
       else if (valueScroll === 26) {
@@ -60,7 +60,7 @@ function StationListsDefault() {
 
       else if (valueScroll === 35) {
          setCountry("CZ")
-         setNumStation(2)
+         setNumStation(1)
       }
 
       else if (valueScroll === 39) {

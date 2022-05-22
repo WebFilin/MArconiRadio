@@ -70,7 +70,7 @@ function StationLists() {
    // Логика состояний для отображения списка станций
    let StateLoading = () => {
 
-      if (localStorage.length === 0) {
+      if (!localStorage.length) {
          return <NotAddStations />
       }
 

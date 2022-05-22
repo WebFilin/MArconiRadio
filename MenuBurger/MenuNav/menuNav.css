@@ -1,7 +1,7 @@
 .menu-nav__wraper {
    position: relative;
-   width: 25vw;
-   height: auto;
+   width: 13vw;
+   height: 90vh;
    border: 2px solid var(--burger-menu-body-background);
    background: #3e3c49;
    display: flex;

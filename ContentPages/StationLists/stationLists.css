@@ -1,33 +1,30 @@
 .station__lists-wraper {
-  width: 100%;
-  height: 100%;
+  width: 85vw;
+  height: 90vh;
 
-  display: flex;
-  flex-direction: column;
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
 }
 
 .station__lists-wraper-btn {
- widows: 100%;
+ width: 73vw;
  height: auto;
  display: flex;
-}
-
-.station__lists-btn-clear{
-  display: inline-block;
+ justify-content: flex-start;
+ align-items: center;
 }
 
 .station__lists-body {
-  width: 100%;
+  width: 80vw;
   height: 100%;
   display: flex;
-  align-items: space-between;
   justify-content: center;
+  align-items: center;
 }
 
 .station__lists-btn-sort {
   color: var(--burger-menu-search-items-txt-color);
-  margin: 0px 0px 0px 15px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  margin: 0px 0px 0px 25px;
 }

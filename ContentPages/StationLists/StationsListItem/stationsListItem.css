@@ -6,6 +6,7 @@
    display: flex;
    justify-content: center;
    align-items: flex-start;
+   
    scrollbar-width: none;
    font-size: var( --burger-menu-search-items-txt-size);
 }
@@ -14,9 +15,11 @@
    position: relative;
    width: 100%;
    height: auto;
-   display: flex;
-   align-items: space-between;
-   flex-wrap: wrap;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 .station__lists-items {

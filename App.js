@@ -37,60 +37,60 @@ import { useDispatch } from 'react-redux';
 
 function App() {
 
-  // Переключатель состоянии кнопки Play/Stop
-  const [playStopSwitch, setPlayStopSwitch] = useState(false)
+   // Переключатель состоянии кнопки Play/Stop
+   const [playStopSwitch, setPlayStopSwitch] = useState(false)
 
-  const dispatch = useDispatch()
+   const dispatch = useDispatch()
 
-  React.useEffect(() => {
-    dispatch(getPlayPause(playStopSwitch))
-  }, [playStopSwitch, dispatch])
+   React.useEffect(() => {
+      dispatch(getPlayPause(playStopSwitch))
+   }, [playStopSwitch, dispatch])
 
-  return (
-    <div className="app-wraper">
+   return (
+      <div className="app-wraper">
 
-      <nav className='app-wraper__menu-burger'>
-        <MenuBurger />
-      </nav>
+         <nav className='app-wraper__menu-burger'>
+            <MenuBurger />
+         </nav>
 
-      <main className='app-wraper__main'>
-        <div className="app-wraper__btn">
-          <div className="app-wraper__btn-play-stop">
+         <main className='app-wraper__main'>
+            <div className="app-wraper__btn">
+               <div className="app-wraper__btn-play-stop">
 
-            <div className="app-wraper__btn-play" onClick={() => { setPlayStopSwitch(true) }}>
-              <BtnPlay btnSwitch={playStopSwitch} />
+                  <div className="app-wraper__btn-play" onClick={() => { setPlayStopSwitch(true) }}>
+                     <BtnPlay btnSwitch={playStopSwitch} />
+                  </div>
+
+                  <div className="app-wraper__btn-stop" onClick={() => { setPlayStopSwitch(false) }}>
+                     <BtnStop btnSwitch={playStopSwitch} />
+                  </div>
+               </div>
+
+               <div className='app-wraper__btn-volume' >
+                  <BtnVolume />
+               </div>
             </div>
 
-            <div className="app-wraper__btn-stop" onClick={() => { setPlayStopSwitch(false) }}>
-              <BtnStop btnSwitch={playStopSwitch} />
+            <div className="app-wraper__display">
+               <EqualizerVisualizer playPauseSwitch={playStopSwitch} />
+               <RadioDisplay />
+               <Equlalizer playPauseSwitch={playStopSwitch} />
             </div>
-          </div>
 
-          <div className='app-wraper__btn-volume' >
-            <BtnVolume />
-          </div>
-        </div>
+            <div className='app-wraper__btn-tuning' >
+               <BtnTuning />
+            </div>
+         </main>
 
-        <div className="app-wraper__display">
-          <EqualizerVisualizer playPauseSwitch={playStopSwitch} />
-          <RadioDisplay />
-          <Equlalizer playPauseSwitch={playStopSwitch} />
-        </div>
+         <RadioController playPauseSwitch={playStopSwitch} />
 
-        <div className='app-wraper__btn-tuning' >
-          <BtnTuning />
-        </div>
-      </main>
+         {/* Подключаем список станций по умолчанию если они не выбранны пользователем */}
+         {localStorage.length > 0 ? null : <StationListsDefault />}
 
-      <RadioController playPauseSwitch={playStopSwitch} />
-
-      {/* Подключаем список станций по умолчанию если они не выбранны пользователем */}
-      {localStorage.length > 0 ? null : <StationListsDefault />}
-
-      {/* Комопнент воспроизведения звука, soundPower громкость в % до 100 */}
-      <AudioController soundPower={50} />
-    </div >
-  );
+         {/* Комопнент воспроизведения звука, soundPower громкость в % до 100 */}
+         <AudioController soundPower={50} />
+      </div >
+   );
 }
 
 export default App;

@@ -18,8 +18,6 @@ import { localStorageLength } from "./localStorageLength"
 
 import { urlAudioSourseReduser } from "./urlAudioSourseReduser"
 
-import { isBurgerOpen } from "./isBurgerOpen"
-
 const rootReducer = combineReducers({
    tuning: scrollReduser,
    volume: scrollReduser,
@@ -31,7 +29,6 @@ const rootReducer = combineReducers({
    totalStationInPage: totalStationInPage,
    localStorageInLength: localStorageLength,
    urlAudioSourse: urlAudioSourseReduser,
-   burgerOpen: isBurgerOpen,
 })
 
 const store = createStore(rootReducer)

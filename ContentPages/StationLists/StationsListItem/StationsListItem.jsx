@@ -20,8 +20,6 @@ import { getlocalStorageLength } from "../../../store/localStorageLength"
 // Анимация загрузки звука при клике на кнопку в карточке
 import AnimoLoadingItemsAudio from '../../../StationSearch/AnimoLoadingItemsAudio/AnimoLoadingItemsAudio'
 
-import NotAddStations from '../NotAddStations/NotAddStations';
-
 // Получаем url аудио для воспроизведения
 import { getUrlAudio, getPlayPause } from "../../../store/urlAudioSourseReduser"
 
@@ -85,7 +83,7 @@ function StationsListItem({ stationsObj }) {
             className="station__lists-items-ul"
             component="ul"
          >
-            {arrStations.length === 0 ? <NotAddStations /> : arrStations.map((elem) =>
+            {arrStations.map((elem) =>
 
                // Задаем классы css
                <CSSTransition

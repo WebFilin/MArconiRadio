@@ -2,7 +2,7 @@ import React from 'react';
 
 import "./menuContent.css"
 
-import { Routes, Route, } from "react-router-dom"
+import { Routes, Route } from "react-router-dom"
 
 import About from '../../ContentPages/About/About';
 
@@ -13,6 +13,7 @@ import StationLists from '../../ContentPages/StationLists/StationLists';
 import NotFoundPage from "../../ContentPages/NotFoundPage/NotFoundPage"
 
 function MenuContent() {
+
    return (
       <div className='menu__content-wraper'>
          {/* Подключаем компоненты в навигацию */}

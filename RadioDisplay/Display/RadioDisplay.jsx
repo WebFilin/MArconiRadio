@@ -13,8 +13,6 @@ function RadioDisplay() {
    // Получаем значение скрола из ScrollController
    const valueMargin = useSelector(state => state.tuning.tuning)
 
-   // Получаем значение скрола из ScrollController
-   const openBurger = useSelector(state => state.burgerOpen.isOpen)
 
    const [marginRange, setMarginRange] = React.useState(1)
 
@@ -27,7 +25,7 @@ function RadioDisplay() {
          setMarginRange(3)
       }
 
-   }, [valueMargin, marginRange, openBurger])
+   }, [valueMargin, marginRange])
 
 
    return (
