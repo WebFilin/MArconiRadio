@@ -18,7 +18,11 @@ function MenuBurger() {
             <MenuBtn active={menuActive} />
          </div>
 
-         <div className={menuActive ? "burger-menu__body-active" : "burger-menu__body"}>
+         <div className={menuActive
+            ?
+            "burger-menu__body-active"
+            :
+            "burger-menu__body"}>
             <LayoutMenu active={menuActive} />
          </div>
       </div>
