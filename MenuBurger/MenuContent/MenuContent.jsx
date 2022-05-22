@@ -12,13 +12,17 @@ import StationLists from '../../ContentPages/StationLists/StationLists';
 
 import NotFoundPage from "../../ContentPages/NotFoundPage/NotFoundPage"
 
-function MenuContent() {
+function MenuContent({ isClick }) {
+
+   console.log(isClick)
 
    return (
+
       <div className='menu__content-wraper'>
-         {/* Подключаем компоненты в навигацию */}
+
+         {/* Подключаем компоненты в навигацию и для отображения*/}
          <Routes>
-            <Route path="/" element={""} />
+            <Route path="" element={""} />
             <Route path="/list" element={<StationLists />} />
             <Route path="/control" element={<StationSearchControl />} />
             <Route path="/about" element={<About />} />

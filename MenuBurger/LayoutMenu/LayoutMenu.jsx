@@ -1,6 +1,6 @@
 import React from 'react';
 
-import "./layout.css"
+import "./layoutMenu.css"
 
 import MenuNav from '../MenuNav/MenuNav';
 
@@ -12,7 +12,7 @@ const items = [
    { value: "About", href: "/about", icon: "" }
 ]
 
-function LayoutMenu(props) {
+function LayoutMenu({ active }) {
 
    return (
       <div className="burger-menu-layout__wraper">
@@ -22,7 +22,7 @@ function LayoutMenu(props) {
          </nav>
 
          <main className="burger-menu-body__content-wraper">
-            <MenuContent />
+            <MenuContent isClick={active} />
          </main>
       </div>
    );

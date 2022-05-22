@@ -4,7 +4,7 @@ import "./menuBurger.css"
 
 import MenuBtn from "./MenuBtn/MenuBtn"
 
-import LayoutMenu from './LayoutMenu/Layout';
+import LayoutMenu from './LayoutMenu/LayoutMenu';
 
 function MenuBurger() {
 
@@ -19,7 +19,7 @@ function MenuBurger() {
          </div>
 
          <div className={menuActive ? "burger-menu__body-active" : "burger-menu__body"}>
-            <LayoutMenu />
+            <LayoutMenu active={menuActive} />
          </div>
       </div>
    );
