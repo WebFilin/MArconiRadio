@@ -12,9 +12,7 @@ import StationLists from '../../ContentPages/StationLists/StationLists';
 
 import NotFoundPage from "../../ContentPages/NotFoundPage/NotFoundPage"
 
-function MenuContent({ isClick }) {
-
-   console.log(isClick)
+function MenuContent() {
 
    return (
 
@@ -22,7 +20,7 @@ function MenuContent({ isClick }) {
 
          {/* Подключаем компоненты в навигацию и для отображения*/}
          <Routes>
-            <Route path="" element={""} />
+            <Route path="/" element={""} />
             <Route path="/list" element={<StationLists />} />
             <Route path="/control" element={<StationSearchControl />} />
             <Route path="/about" element={<About />} />

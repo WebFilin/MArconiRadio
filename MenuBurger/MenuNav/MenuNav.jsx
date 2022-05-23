@@ -4,7 +4,14 @@ import "../MenuNav/menuNav.css"
 
 import { NavLink } from "react-router-dom"
 
-function MenuNav({ header, items }) {
+function MenuNav({ header }) {
+
+   // массив пунктов меню
+   const items = [
+      { value: "Station control", href: "/control", icon: "" },
+      { value: "Station list", href: "/list", icon: "" },
+      { value: "About", href: "/about", icon: "" }
+   ]
 
    return (
       // Запрещаем скрывать меню при клике по его области

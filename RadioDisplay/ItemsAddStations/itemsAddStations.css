@@ -18,7 +18,7 @@
 }
 
 .add__station-items_point_range-up {
-   width: 0.6vw;
+   width: 0.4vw;
    height: 0.3vw;
    border-radius: 50%;
    background: var(--display-font-color);
@@ -26,7 +26,7 @@
 }
 
 .add__station-items-point_range-down {
-   width: 0.6vw;
+   width: 0.4vw;
    height: 0.3vw;
    border-radius: 50%;
    background: var(--display-font-color);
