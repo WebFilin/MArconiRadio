@@ -30,9 +30,7 @@ function StationSearchControl() {
                   onChange={() => { setVoitsCheck(!voitsCheck) }}>
                   <SwitchSortItems title={"Rating"} />
                </div>
-
             </div>
-
             <Pagination />
          </div>
 

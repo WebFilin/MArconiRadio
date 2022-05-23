@@ -49,7 +49,7 @@ function Pagination() {
          }
 
          else {
-            alert("Ошибка HTTP: " + response.status)
+            alert(response.status)
          }
       }
 

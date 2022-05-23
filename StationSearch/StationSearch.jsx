@@ -213,9 +213,9 @@ function StationSearch({ isRating }) {
                                  isActiveElem={isActive === elem}
                                  isActive={playSwitch}
                               />
-
                            </div>
                         </div>
+
                      </div>
                      <StationItemsBody radioStation={elem} />
                   </li>

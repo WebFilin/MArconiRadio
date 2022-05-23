@@ -6,29 +6,27 @@
 }
 
 .search-stations__items-ul {
-   display: grid;
-   grid-template-columns: 1fr 1fr 1fr;
-   padding-right: 10px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
 }
 
 .search-stations__items-title-wraper{
    display: flex;
    justify-content: space-between;
    align-items: center;
+  
 }
 
 .search-stations__items-title-btn-wraper {
    position: relative;
    display: flex;
-   margin-right: 5px;
+   justify-content: center;
+   margin: 0px 5px;
 }
 
 .search-stations__items {
    position: relative;
-   width: 95%;
    height: auto;
-   min-width: 200px;
-   min-height: 100px;
    display: inline-block;
    margin: max(5px, 10px);
    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.8);
@@ -44,7 +42,7 @@
 }
 
 .search-stations__wraper::-webkit-scrollbar {
-   /* width: 0px;  */
+
 }
 
 .search-stations__not-search{
@@ -68,3 +66,40 @@
       opacity: 0;
       transform: scale(0%);
    }}
+
+   /* Large desktops and laptops */
+   @media (max-width: 1200px) {
+      .search-stations__items-title-btn-wraper {
+         position: relative;
+         width: 90%;
+         display: flex;
+         justify-content: space-between;
+      }
+
+      .search-stations__items-title-wraper{
+         flex-wrap: wrap;
+         justify-content: center;
+      }
+
+   }
+   /* Landscape tablets and medium desktops */
+   @media (min-width: 992px) and (max-width: 1199px) {
+   
+   }
+
+   /* Portrait tablets and small desktops */
+   @media (min-width: 768px) and (max-width: 991px) {
+     
+   }
+   /* Landscape phones and portrait tablets */
+   @media (max-width: 767px) {
+     
+   }
+   /* Portrait phones and smaller */
+   @media (max-width: 480px) {
+      
+   }
+   /* Iphone 5 */
+   @media (max-width: 320px) {
+   
+   }
