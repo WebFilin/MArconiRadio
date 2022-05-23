@@ -85,7 +85,7 @@ function App() {
          <RadioController playPauseSwitch={playStopSwitch} />
 
          {/* Подключаем список станций по умолчанию если они не выбранны пользователем */}
-         {localStorage.length > 0 ? null : <StationListsDefault />}
+         {localStorage.length > 0 ? "" : <StationListsDefault />}
 
          {/* Комопнент воспроизведения звука, soundPower громкость в % до 100 */}
          <AudioController soundPower={50} />

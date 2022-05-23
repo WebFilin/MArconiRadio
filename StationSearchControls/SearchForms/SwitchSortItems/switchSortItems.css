@@ -1,6 +1,6 @@
 .station__control-navigations-items-amount-voits-wraper {
-   margin: 15px 0px 0px 10px;
-   color: aliceblue;
+   margin: 10px 0px 0px 10px;
+   color: var(--burger-menu-search-items-star-txt-color);
 }
 
 .station__control-navigations-items-amount-voits-body{
@@ -31,7 +31,6 @@
 	position: relative;
 	top: 12px;			
 	vertical-align: top;
-	background: #9f9f9f;
 	transition: .2s;
 }
 .station__control-navigations-items-amount-voits-checkbox .station__control-navigations-items-amount-voits-switch:before {
@@ -40,12 +39,13 @@
 	width: 20px;	
 	height: 20px;
 	position: absolute;
-	top: -3px;
+	top: -5px;
 	left: -1px;
-	background: #fff;
+	background: whitesmoke;
 	border-radius: 50%;
-	box-shadow: 0 3px 1px -2px rgba(0,0,0,0.2), 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12);
-	transition: .15s;		
+	transition: .15s;	
+   outline: 2px solid  grey;
+   outline-offset: -5px
 }
 .station__control-navigations-items-amount-voits-checkbox input[type=checkbox] {
 	display: block;	
@@ -66,7 +66,7 @@
 /* Hover */
 .station__control-navigations-items-amount-voits-checkbox input[type="checkbox"]:not(:disabled) + .station__control-navigations-items-amount-voits-switch {
 	cursor: pointer;
-	border-color: rgba(0, 0, 0, .3);
+   border: 2px solid var(--burger-menu-search-items-btn-border-elem-active);
 }
  
 /* Active/Focus */
@@ -100,6 +100,7 @@
 .station__control-navigations-items-amount-voits-checkbox input[type=checkbox]:disabled + .station__control-navigations-items-amount-voits-switch {
 	filter: grayscale(60%);
 	border-color: rgba(0, 0, 0, .1);
+  
 }
 .station__control-navigations-items-amount-voits-checkbox input[type=checkbox]:disabled + .station__control-navigations-items-amount-voits-switch:before {
 	background: #eee;

@@ -27,7 +27,6 @@ function Input({ label, register, validData, errors, messageErr, dataCategory, d
          getCategory()
       }
 
-
    }, [dataCategory, offsetLoad])
 
    return (
