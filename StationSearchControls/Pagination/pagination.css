@@ -1,10 +1,8 @@
 .station__control-pagination-wraper{
    width: 100%;
-   height: 100%;
    display: flex;
    justify-content: space-between;
    align-items: center;
-   padding: 5px 0px 10px 0px;
    color:var(--burger-menu-search-items-txt-color);
    transition: 0.2s;
 }

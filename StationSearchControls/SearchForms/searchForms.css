@@ -1,12 +1,11 @@
 .search-forms__wraper {
    height: auto;
-   width: 77vw;
-   
+   width: 70vw;
 }
 
 .search-forms__body {
    display: flex;
-   align-items: flex-start;
+   align-items: center;
    justify-content: space-between;
    flex-wrap: wrap;
 }
