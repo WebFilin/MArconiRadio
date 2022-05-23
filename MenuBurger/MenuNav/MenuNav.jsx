@@ -24,7 +24,7 @@ function MenuNav({ header }) {
             {items.map((item) =>
                <li key={item.value} >
                   <NavLink
-                     className={({ isActive }) => isActive ? "menu-nav__url-active" : 'menu-nav__url'}
+                     className={({ isActive }) => isActive ? "menu-nav__url-active" : "menu-nav__url"}
                      to={item.href}>{item.value}
                   </NavLink>
                </li>

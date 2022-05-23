@@ -23,6 +23,10 @@
 .menu-nav__items {
    z-index: 1;
    padding-top: 10px;
+   display: flex;
+   flex-direction: column;
+   flex-wrap: wrap;
+   text-align:center
 }
 
 .menu-nav__url {
@@ -74,3 +78,44 @@
    height: 2px;
    background: var(--burger-menu-body-line-title);
 }
+
+/* Large desktops and laptops */
+@media (min-width: 1200px) {
+   .menu-nav__url-active{
+      font-size: 1.25vw;
+   }
+   .menu-nav__url{
+      font-size: 1.25vw;
+   }
+}
+
+/* Landscape tablets and medium desktops */
+@media (min-width: 992px) and (max-width: 1199px) {
+   .menu-nav__url-active{
+      font-size: 1.4vw;
+   }
+   .menu-nav__url{
+      font-size: 1.4vw;
+   }
+}
+/* Portrait tablets and small desktops */
+@media (min-width: 768px) and (max-width: 991px) {
+   .menu-nav__url-active{
+      font-size: 1.7vw;
+   }
+   .menu-nav__url{
+      font-size: 1.7vw;
+   }
+}
+/* Landscape phones and portrait tablets */
+@media (max-width: 767px) {
+   .menu-nav__url-active{
+      font-size: 2vw;
+   }
+   .menu-nav__url{
+      font-size: 2vw;
+   }
+}
+
+
+
