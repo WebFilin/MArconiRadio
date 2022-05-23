@@ -36,3 +36,13 @@
    transform: rotate(-45deg);
    top: 13px;
 }
+
+/* Portrait tablets and small desktops */
+@media (min-width: 768px) and (max-width: 991px) {
+
+}
+
+/* Landscape phones and portrait tablets */
+@media (max-width: 767px) {
+ 
+}

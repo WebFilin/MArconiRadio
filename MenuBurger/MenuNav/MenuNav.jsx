@@ -17,9 +17,10 @@ function MenuNav({ header }) {
       // Запрещаем скрывать меню при клике по его области
       <div className='menu-nav__wraper' onClick={elem => elem.stopPropagation()} >
          <h2 className="menu-nav__header">{header}</h2>
+         <div className="menu-nav__header-border"></div>
+         
+         {/* Создаем меню ссылок навигации */}
          <ul className='menu-nav__items'>
-
-            {/* Создаем меню ссылок навигации */}
             {items.map((item) =>
                <li key={item.value} >
                   <NavLink

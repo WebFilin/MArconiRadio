@@ -1,12 +1,13 @@
 .search-forms__wraper {
-   height: 6vh;
-   width: 100%;
+   height: auto;
+   width: 77vw;
+   
 }
 
 .search-forms__body {
-   margin-left: 10px;
    display: flex;
    align-items: flex-start;
    justify-content: space-between;
+   flex-wrap: wrap;
 }
 
