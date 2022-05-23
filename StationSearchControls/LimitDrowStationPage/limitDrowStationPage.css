@@ -1,10 +1,21 @@
 .station__control-limit-drow-wraper{
    color: aliceblue;
-   margin: 10px 0px 5px 0px;
+   margin: 5px 0px 5px 0px;
 }
 
 .station__control-limit-drow-body{
-   padding: 5px;
+    padding: 0px 5px 0px 0px;
+}
+
+.station__control-limit-drow-form{
+   border: 2px solid var( --burger-menu-search-items-btn-border-elem-active);
+   border-radius: 10px;
+  background: transparent;
+  color: var(--burger-menu-search-items-txt-color);
+}
+
+.station__control-limit-drow-form > option {
+   color: black;
 }
 
 .station__control-limit-drow-body > h2{

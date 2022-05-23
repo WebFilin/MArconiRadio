@@ -26,12 +26,11 @@ function LimitDrowStationPage({ title }) {
 
    return (
       <div className='station__control-limit-drow-wraper'>
-
          <div className="station__control-limit-drow-body">
             <h2>{title}</h2>
             <form
                onChange={(elem) => handleSubmit(elem)} >
-               <select >
+               <select className='station__control-limit-drow-form' >
                   <option value="">-</option>
                   <option value="20">20</option>
                   <option value="50">50</option>
