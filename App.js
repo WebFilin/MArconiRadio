@@ -88,7 +88,7 @@ function App() {
          {localStorage.length > 0 ? "" : <StationListsDefault />}
 
          {/* Комопнент воспроизведения звука, soundPower громкость в % до 100 */}
-         <AudioController soundPower={50} />
+         <AudioController />
       </div >
    );
 }

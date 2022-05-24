@@ -2,6 +2,7 @@
    display: flex;
    justify-content: space-around;
    align-items: center;
+   flex-wrap: wrap;
 }
 .search-stations__items-title-img {
    width: 80px;

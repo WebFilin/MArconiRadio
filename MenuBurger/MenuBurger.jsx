@@ -12,12 +12,11 @@ import { getOpenBurgerState } from "../store/isOpenBurger"
 
 function MenuBurger() {
 
-   const dispatch = useDispatch()
-
    // Открываем - закрываем меню
    const [menuActive, setMenuActive] = React.useState(false)
 
-   // Передаем состояние в RAdioDisplay
+   const dispatch = useDispatch()
+
    dispatch(getOpenBurgerState(menuActive))
 
    return (

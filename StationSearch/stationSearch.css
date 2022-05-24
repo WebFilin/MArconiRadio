@@ -6,22 +6,24 @@
 }
 
 .search-stations__items-ul {
+   position: relative;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  width: 100%;
 }
 
 .search-stations__items-title-wraper{
    display: flex;
    justify-content: space-between;
    align-items: center;
-  
+   flex-wrap: wrap;
 }
 
 .search-stations__items-title-btn-wraper {
    position: relative;
    display: flex;
    justify-content: center;
-   margin: 0px 5px;
+   margin: 5px 5px;
 }
 
 .search-stations__items {
@@ -69,10 +71,10 @@
    }}
 
    /* Large desktops and laptops */
-   @media (max-width: 1200px) {
+   @media (max-width: 1730px) {
       .search-stations__items-title-btn-wraper {
          position: relative;
-         width: 90%;
+         width: 100%;
          display: flex;
          justify-content: space-between;
       }
@@ -81,26 +83,5 @@
          flex-wrap: wrap;
          justify-content: center;
       }
-
    }
-   /* Landscape tablets and medium desktops */
-   @media (min-width: 992px) and (max-width: 1199px) {
-   
-   }
-
-   /* Portrait tablets and small desktops */
-   @media (min-width: 768px) and (max-width: 991px) {
-     
-   }
-   /* Landscape phones and portrait tablets */
-   @media (max-width: 767px) {
-     
-   }
-   /* Portrait phones and smaller */
-   @media (max-width: 480px) {
-      
-   }
-   /* Iphone 5 */
-   @media (max-width: 320px) {
-   
-   }
+  

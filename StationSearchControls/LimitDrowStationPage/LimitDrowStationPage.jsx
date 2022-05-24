@@ -9,7 +9,7 @@ import { getAmountStations } from "../../store/totalStationInPage"
 function LimitDrowStationPage({ title }) {
 
    // Количество станций на странице
-   const [limitDrowStation, setLimitDrowStation] = React.useState(10)
+   const [limitDrowStation, setLimitDrowStation] = React.useState(9)
 
    // передаем обьект через redux
    const dispatch = useDispatch()

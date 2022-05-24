@@ -6,7 +6,7 @@ import { getEqualaizerAudioObj } from "../store/equlaizReduser"
 
 import { getVisualLoadState } from "../store/visualLoadAudio"
 
-function AudioController({ soundPower }) {
+function AudioController() {
 
    // Сформированный обьект аудио
    const audioRef = React.useRef()
@@ -81,14 +81,10 @@ function AudioController({ soundPower }) {
 
    // Управление громкостью
    React.useEffect(() => {
-      if (audioObj !== undefined && soundLvl !== undefined) {
 
-         // Предустановка уровня звука из пропса
-         if (soundPower) {
-            audioObj.volume = soundPower / 100
-         }
-         else {
-            // уровня звука из стейта
+      if (audioObj) {
+         
+         if (soundLvl) {
             audioObj.volume = soundLvl / 10
          }
 
@@ -96,7 +92,7 @@ function AudioController({ soundPower }) {
          dispatch(getEqualaizerAudioObj(audioObj))
       }
 
-   }, [soundLvl, audioObj, dispatch, soundPower])
+   }, [soundLvl, audioObj, dispatch])
 
    return (
       <div>
