@@ -9,7 +9,7 @@ import { getAmountStations } from "../../store/totalStationInPage"
 function LimitDrowStationPage({ title }) {
 
    // Количество станций на странице
-   const [limitDrowStation, setLimitDrowStation] = React.useState(9)
+   const [limitDrowStation, setLimitDrowStation] = React.useState(10)
 
    // передаем обьект через redux
    const dispatch = useDispatch()
@@ -17,12 +17,9 @@ function LimitDrowStationPage({ title }) {
    // Получаем значение
    function handleSubmit(elem) {
       setLimitDrowStation(elem.target.value)
-   }
 
-   React.useEffect(() => {
       dispatch(getAmountStations(limitDrowStation))
-
-   }, [dispatch, limitDrowStation])
+   }
 
    return (
       <div className='station__control-limit-drow-wraper'>

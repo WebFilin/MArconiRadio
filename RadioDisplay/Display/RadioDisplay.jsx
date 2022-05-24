@@ -13,7 +13,7 @@ function RadioDisplay() {
    // Получаем значение скрола из ScrollController
    const valueMargin = useSelector(state => state.tuning.tuning)
 
-
+   // Стейт для сдвига ползунка выбора станции
    const [marginRange, setMarginRange] = React.useState(1)
 
    React.useEffect(() => {
@@ -27,7 +27,6 @@ function RadioDisplay() {
 
    }, [valueMargin, marginRange])
 
-
    return (
       <div className="radio-display__body">
 
@@ -35,7 +34,6 @@ function RadioDisplay() {
             <div style={{ marginLeft: `${marginRange}%` }} className="radio-display__range"></div>
 
             <div className="radio-display__station-wraper">
-
                <img className="radio-display__img-back" alt="" />
 
                <div className="radio-display__back-wraper">
@@ -45,7 +43,6 @@ function RadioDisplay() {
 
                {/* Переключаем списки станций выбраны они пользователем или предустановлены */}
                {localStorage.length > 0 ? <AddStationsLists /> : <StationsDefaultList />}
-
             </div>
          </div>
       </div>

@@ -6,10 +6,19 @@ import MenuBtn from "./MenuBtn/MenuBtn"
 
 import LayoutMenu from './LayoutMenu/LayoutMenu';
 
+import { useDispatch } from 'react-redux';
+
+import { getOpenBurgerState } from "../store/isOpenBurger"
+
 function MenuBurger() {
+
+   const dispatch = useDispatch()
 
    // Открываем - закрываем меню
    const [menuActive, setMenuActive] = React.useState(false)
+
+   // Передаем состояние в RAdioDisplay
+   dispatch(getOpenBurgerState(menuActive))
 
    return (
       <div className='burger-menu__wraper' >
