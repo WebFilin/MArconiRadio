@@ -17,9 +17,9 @@ function LimitDrowStationPage({ title }) {
    // Получаем значение
    function handleSubmit(elem) {
       setLimitDrowStation(elem.target.value)
-
-      dispatch(getAmountStations(limitDrowStation))
    }
+
+   dispatch(getAmountStations(limitDrowStation))
 
    return (
       <div className='station__control-limit-drow-wraper'>

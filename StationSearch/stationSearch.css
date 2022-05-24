@@ -27,8 +27,9 @@
 .search-stations__items {
    position: relative;
    height: auto;
-   display: inline-block;
-   margin: max(5px, 10px);
+   width: 95%;
+   margin-top: 10px;
+   display:block;
    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.8);
    border-radius: 8px;
    padding-bottom: 10px;
