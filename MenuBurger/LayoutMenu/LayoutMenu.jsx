@@ -6,7 +6,7 @@ import MenuNav from '../MenuNav/MenuNav';
 
 import MenuContent from '../MenuContent/MenuContent';
 
-function LayoutMenu() {
+function  LayoutMenu() {
 
    return (
       <div className="burger-menu-layout__wraper">

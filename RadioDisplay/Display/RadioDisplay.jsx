@@ -13,6 +13,8 @@ function RadioDisplay() {
    // Получаем значение скрола из ScrollController
    const valueMargin = useSelector(state => state.tuning.tuning)
 
+   const isOpenBurger = useSelector(state => state.isOpenBurger.isOpen)
+
    // Стейт для сдвига ползунка выбора станции
    const [marginRange, setMarginRange] = React.useState(1)
 
@@ -42,7 +44,8 @@ function RadioDisplay() {
                </div>
 
                {/* Переключаем списки станций выбраны они пользователем или предустановлены */}
-               {localStorage.length > 0 ? <AddStationsLists /> : <StationsDefaultList />}
+               {!isOpenBurger && localStorage.length > 0 ? <AddStationsLists /> : <StationsDefaultList />}
+
             </div>
          </div>
       </div>

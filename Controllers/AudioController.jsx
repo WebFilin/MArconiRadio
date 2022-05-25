@@ -36,8 +36,9 @@ function AudioController() {
       function canPlay(obj) {
 
          // Старт воспроизведения по готовности
+
          obj.addEventListener("canplay", () => {
-            if (playPauseSwitch && urlAudio) {
+            if (playPauseSwitch) {
                obj.play()
             }
 
@@ -83,7 +84,7 @@ function AudioController() {
    React.useEffect(() => {
 
       if (audioObj) {
-         
+
          if (soundLvl) {
             audioObj.volume = soundLvl / 10
          }

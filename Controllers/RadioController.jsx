@@ -37,17 +37,19 @@ function RadioController({ playPauseSwitch }) {
 
                // Подставляем нужный url в обьект Audio AudioController
                dispatch(getUrlAudio(urlRadio))
-
             }
+
             catch (error) {
                alert(error.message)
             }
          }
 
-         fetchStation()
+         if (stationParams.land) {
+            fetchStation()
+         }
       }
 
-   }, [stationParams.land, dispatch, playPauseSwitch])
+   }, [stationParams, dispatch, playPauseSwitch])
 
 
    return (
