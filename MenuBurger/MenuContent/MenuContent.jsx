@@ -2,7 +2,7 @@ import React from 'react';
 
 import "./menuContent.css"
 
-import { Routes, Route } from "react-router-dom"
+import { Routes, Route, Link } from "react-router-dom"
 
 import About from '../../ContentPages/About/About';
 

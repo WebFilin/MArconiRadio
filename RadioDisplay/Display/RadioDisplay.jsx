@@ -13,6 +13,7 @@ function RadioDisplay() {
    // Получаем значение скрола из ScrollController
    const valueMargin = useSelector(state => state.tuning.tuning)
 
+   // Слушатель открытия меню бургер - перерисовыаем дисплей по условию
    const isOpenBurger = useSelector(state => state.isOpenBurger.isOpen)
 
    // Стейт для сдвига ползунка выбора станции
