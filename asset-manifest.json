@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/WebFilin/MarconiRadio/static/css/main.2bda7c17.chunk.css",
+    "main.js": "/WebFilin/MarconiRadio/static/js/main.8b9c64f8.chunk.js",
+    "main.js.map": "/WebFilin/MarconiRadio/static/js/main.8b9c64f8.chunk.js.map",
+    "runtime-main.js": "/WebFilin/MarconiRadio/static/js/runtime-main.925be084.js",
+    "runtime-main.js.map": "/WebFilin/MarconiRadio/static/js/runtime-main.925be084.js.map",
+    "static/js/2.f6488f26.chunk.js": "/WebFilin/MarconiRadio/static/js/2.f6488f26.chunk.js",
+    "static/js/2.f6488f26.chunk.js.map": "/WebFilin/MarconiRadio/static/js/2.f6488f26.chunk.js.map",
+    "index.html": "/WebFilin/MarconiRadio/index.html",
+    "static/css/main.2bda7c17.chunk.css.map": "/WebFilin/MarconiRadio/static/css/main.2bda7c17.chunk.css.map",
+    "static/js/2.f6488f26.chunk.js.LICENSE.txt": "/WebFilin/MarconiRadio/static/js/2.f6488f26.chunk.js.LICENSE.txt",
+    "static/media/app.css": "/WebFilin/MarconiRadio/static/media/minotaur.d739f86b.ttf",
+    "static/media/variables.css": "/WebFilin/MarconiRadio/static/media/texture_btn.0808914d.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.925be084.js",
+    "static/js/2.f6488f26.chunk.js",
+    "static/css/main.2bda7c17.chunk.css",
+    "static/js/main.8b9c64f8.chunk.js"
+  ]
+}
