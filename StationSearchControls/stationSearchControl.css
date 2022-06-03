@@ -1,20 +1,18 @@
 .station__control-wraper {
- display: flex;
- flex-direction: column;
- justify-content: center;
- height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
 }
 
-.station__control-navigations{
-   width: 100%;
-   height: auto;
+.station__control-navigations {
+  width: 100%;
+  height: auto;
 }
 
-.station__control-navigations-items-amount{
+.station__control-navigations-items-amount {
   position: relative;
   display: flex;
   align-items: center;
   margin-left: 5px;
 }
-
-

@@ -1,96 +1,45 @@
-import React, { useState } from 'react';
+import React from "react";
 
 // Локлаьные для компонента App
-import "./app.css"
+import "./app.css";
 
 // Глобальные css переменные
-import "./variables/variables.css"
+import "./variables/variables.css";
 
-// Маховичек звука
-import BtnVolume from "./Buttons/BtnVolume/BtnVolume"
+import { useSelector } from "react-redux";
 
-//Ручка выбора радиостанции
-import BtnTuning from "./Buttons/BtnTuning/BtnTuning"
+import { Routes, useNavigate, Route } from "react-router-dom";
 
-import BtnPlay from "./Buttons/BtnPlay/BtnPlay"
+import MainLayout from "./MainLayout/MainLayout";
 
-import BtnStop from "./Buttons/BtnStop/BtnStop"
-
-import RadioDisplay from "./RadioDisplay/Display/RadioDisplay"
-
-import RadioController from './Controllers/RadioController';
-
-import Equlalizer from "./Equalizer/Equalizer"
-
-import EqualizerVisualizer from './Equalizer/EqualizerVisualizer/EqualizerVisualizer';
-
-import StationListsDefault from "./ContentPages/StationLists/StationsListDefault/StationListsDefault";
-
-import MenuBurger from "./MenuBurger/MenuBurger"
-
-import AudioController from "./Controllers/AudioController"
-
-// Предаем вкл выкл в AudioController
-import { getPlayPause } from "./store/urlAudioSourseReduser"
-
-import { useDispatch } from 'react-redux';
+import MenuBurger from "./MenuBurger/MenuBurger";
 
 function App() {
+  // состояние открытия или закрытия бургера
+  const isOpenBurger = useSelector((state) => state.isOpenBurger.isOpen);
 
-   // Переключатель состоянии кнопки Play/Stop
-   const [playStopSwitch, setPlayStopSwitch] = useState(false)
+  //   Используем навигацию из роутинга
+  const navigate = useNavigate();
 
-   const dispatch = useDispatch()
+  //   Принудительный роутинг на корневой элемент приложения
+  React.useEffect(() => {
+    if (!isOpenBurger) {
+      return navigate("/");
+    }
+  }, [isOpenBurger, navigate]);
 
-   React.useEffect(() => {
-      dispatch(getPlayPause(playStopSwitch))
-   }, [playStopSwitch, dispatch])
+  return (
+    <div className="app-wraper">
+      <nav className="app-wraper__menu-burger">
+        <MenuBurger />
+      </nav>
 
-   return (
-      <div className="app-wraper">
-
-         <nav className='app-wraper__menu-burger'>
-            <MenuBurger />
-         </nav>
-
-         <main className='app-wraper__main'>
-            <div className="app-wraper__btn">
-               <div className="app-wraper__btn-play-stop">
-
-                  <div className="app-wraper__btn-play" onClick={() => { setPlayStopSwitch(true) }}>
-                     <BtnPlay btnSwitch={playStopSwitch} />
-                  </div>
-
-                  <div className="app-wraper__btn-stop" onClick={() => { setPlayStopSwitch(false) }}>
-                     <BtnStop btnSwitch={playStopSwitch} />
-                  </div>
-               </div>
-
-               <div className='app-wraper__btn-volume' >
-                  <BtnVolume />
-               </div>
-            </div>
-
-            <div className="app-wraper__display">
-               <EqualizerVisualizer playPauseSwitch={playStopSwitch} />
-               <RadioDisplay />
-               <Equlalizer playPauseSwitch={playStopSwitch} />
-            </div>
-
-            <div className='app-wraper__btn-tuning' >
-               <BtnTuning />
-            </div>
-         </main>
-
-         <RadioController playPauseSwitch={playStopSwitch} />
-
-         {/* Подключаем список станций по умолчанию если они не выбранны пользователем */}
-         {localStorage.length > 0 ? "" : <StationListsDefault />}
-
-         {/* Комопнент воспроизведения звука, soundPower громкость в % до 100 */}
-         <AudioController />
-      </div >
-   );
+      {/* Вставляем главный интерфейс приложения */}
+      <Routes>
+        <Route path="/" element={<MainLayout />} />
+      </Routes>
+    </div>
+  );
 }
 
 export default App;
