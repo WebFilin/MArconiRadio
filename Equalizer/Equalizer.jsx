@@ -20,14 +20,20 @@ function Equalizer({ playPauseSwitch }) {
   // Передаем значение ползунков через redux для фильтров эквалайзера из equalizReduser
   let ranges = useSelector((state) => state.equalizer.rangeValueArr);
 
-  // Управление requestAnimationFrame для getVolumeEcvalaiz
-  let powerSoundFrameSwitch = useRef();
-
-  //Глобальные переменные для анализатора звука
-  const analyser = useRef();
-  const audioNodeSource = useRef();
-  const arrayVolums = useRef();
+  //Глобальные переменные анализатора звука
   const audioContext = useRef();
+  const audioSource = useRef();
+  const analyser = useRef();
+
+  // Управление requestAnimationFrame для getVolumeEcqualaiz
+  const powerSoundFrameSwitch = useRef();
+
+  //  Cтейт для обьекта аудио
+  const [audioSourse, setAudioSourse] = React.useState("");
+
+  React.useEffect(() => {
+    setAudioSourse(audio);
+  }, [audio]);
 
   // Создаем инструменты анализа
   useEffect(() => {
@@ -36,41 +42,41 @@ function Equalizer({ playPauseSwitch }) {
     audioContext.current = new (window.AudioContext ||
       window.webkitAudioContext)();
 
-    // Создаем аудиоузел
-    if (audio.children) {
-      audioNodeSource.current =
-        audioContext.current.createMediaElementSource(audio);
+    // Создаем аудиоузел по полученной ссылке из обьекта audio
+    if (audioSourse.children) {
+      audioSource.current =
+        audioContext.current.createMediaElementSource(audioSourse);
 
       // Анализатор звука
       analyser.current = audioContext.current.createAnalyser();
     }
-  }, []);
+  }, [audioSourse]);
 
   useEffect(() => {
     // Локальные переменные для узла звука, анализатора, массива значений и аудиоконекста
     let analyserAudio = analyser.current;
-    let sourceAudio = audioNodeSource.current;
+    let sourceAudio = audioSource.current;
     let audioCtx = audioContext.current;
-    let arrAnalaizVolume = arrayVolums.current;
 
     // Подключаем аназизатор звука
     function analaizerAudio() {
-      // Проверка готовности аудио к проигрыванию
+      // Проверка готовности аналайзера
       if (analyserAudio) {
         // Задаем усреднение волны
         analyserAudio.smoothingTimeConstant = 0.5;
 
         // Задаем количество блоков с частотой
-        analyserAudio.fftSize = 512;
+        analyserAudio.fftSize = 128;
 
         // Подключаем его к анализатору частот
         sourceAudio.connect(analyserAudio);
 
         // вывод звука на колонки
         analyserAudio.connect(audioCtx.destination);
-      }
 
-      volumePower();
+        // Когда анализатор готов запускаем общет мошности звука
+        volumePower();
+      }
     }
 
     // Получаем силу звука
@@ -79,31 +85,28 @@ function Equalizer({ playPauseSwitch }) {
       powerSoundFrameSwitch.current = requestAnimationFrame(volumePower);
 
       // Формируем бинарный массив и заполняем его данными частоты
+      let arrAnalaizVolume = new Uint8Array(analyserAudio.frequencyBinCount);
+      analyserAudio.getByteFrequencyData(arrAnalaizVolume);
 
-      if (analyserAudio) {
-        arrAnalaizVolume = new Uint8Array(analyserAudio.frequencyBinCount);
-        analyserAudio.getByteFrequencyData(arrAnalaizVolume);
+      // Значение для записи расчетной частоты
+      let valus = 0;
 
-        // Значение для записи расчетной частоты
-        let valus = 0;
+      // Усредненное значение частоты
+      let average;
 
-        // Усредненное значение частоты
-        let average;
+      // Ограничитель для цикла
+      let length = arrAnalaizVolume.length;
 
-        // Ограничитель для цикла
-        let length = arrAnalaizVolume.length;
-
-        // Расчет усреднения для массива частот
-        for (let i = 0; i < length; i++) {
-          valus += arrAnalaizVolume[i];
-        }
-
-        // Средние значение частоты одного канала
-        average = Math.floor(valus / length);
-
-        // Получаем усредненное значение частоты и передаем в визуализацию  через Redux equlaizReduser
-        dispatch(getEqualaizerAverage(average));
+      // Расчет усреднения для массива частот
+      for (let i = 0; i < length; i++) {
+        valus += arrAnalaizVolume[i];
       }
+
+      // Средние значение частоты одного канала
+      average = Math.floor(valus / length);
+
+      // Получаем усредненное значение частоты и передаем в визуализацию  через Redux equlaizReduser
+      dispatch(getEqualaizerAverage(average));
     }
 
     // Управление стартом и остановкой эквалайзера
@@ -112,7 +115,7 @@ function Equalizer({ playPauseSwitch }) {
     } else {
       window.cancelAnimationFrame(powerSoundFrameSwitch.current);
     }
-  }, [playPauseSwitch, dispatch, audio]);
+  }, [playPauseSwitch, dispatch, audioSourse, analyser, audioContext]);
 
   // Создаем набор фильтров для эквалайзера
   useEffect(() => {
@@ -120,7 +123,7 @@ function Equalizer({ playPauseSwitch }) {
     let audioCtx = audioContext.current;
 
     // Получаем сформированные аудио обьект для эквалайзера
-    let equlizerAudioObj = audioNodeSource.current;
+    let equlizerAudioObj = audioSource.current;
 
     if (audioCtx && equlizerAudioObj) {
       // Фильтр и его параметры
@@ -156,7 +159,6 @@ function Equalizer({ playPauseSwitch }) {
       // Управляем усилинием частот фильтра через ползунки эквалайзера
       // через isFinite убираем баг с типом значения с плавающией запятой и протяжкой ползунка вместо клика
       function getFiltersAudio() {
-
         filters[0].gain.value = isFinite(ranges[0]);
         filters[1].gain.value = isFinite(ranges[1]);
         filters[2].gain.value = isFinite(ranges[2]);
@@ -174,9 +176,12 @@ function Equalizer({ playPauseSwitch }) {
         // а последний фильтр - к выходу
         filters[filters.length - 1].connect(audioCtx.destination);
       }
-      getFiltersAudio();
+
+      if (playPauseSwitch === true) {
+        getFiltersAudio();
+      }
     }
-  }, [audio, ranges]);
+  }, [audioSourse, ranges, playPauseSwitch]);
 
   return (
     <div className="equalizer-wraper">
