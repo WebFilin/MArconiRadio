@@ -6,7 +6,7 @@ import { getEqualaizerAudioObj } from "../store/equlaizReduser";
 
 import { getVisualLoadState } from "../store/visualLoadAudio";
 
-import NewEqualizer from "../Equalizer/NewEqualizer";
+import NewEqualizer from "../Equalizer/Equalizer";
 
 function AudioController() {
   // Сформированный обьект аудио

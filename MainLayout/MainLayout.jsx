@@ -19,8 +19,6 @@ import RadioDisplay from "../RadioDisplay/Display/RadioDisplay";
 
 import RadioController from "../Controllers/RadioController";
 
-import Equlalizer from "../Equalizer/Equalizer";
-
 import EqualizerVisualizer from "../Equalizer/EqualizerVisualizer/EqualizerVisualizer";
 
 import StationListsDefault from "../ContentPages/StationLists/StationsListDefault/StationListsDefault";
@@ -70,8 +68,6 @@ function MainLayout() {
         <div className="app-wraper__display">
           <EqualizerVisualizer playPauseSwitch={playStopSwitch} />
           <RadioDisplay />
-          {/* <Equlalizer playPauseSwitch={playStopSwitch} /> */}
-
           <EqualizerRangeHandlers />
         </div>
 

@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React from "react";
 
 // Локлаьные для компонента App
 import "./app.css";
@@ -8,7 +8,7 @@ import "./variables/variables.css";
 
 import { useSelector } from "react-redux";
 
-import { Routes, useNavigate, Route, useHref } from "react-router-dom";
+import { Routes, useNavigate, Route } from "react-router-dom";
 
 import MainLayout from "./MainLayout/MainLayout";
 
@@ -30,7 +30,6 @@ function App() {
     }
   }, [isOpenBurger, navigate]);
 
-  
   return (
     <div className="app-wraper">
       <nav className="app-wraper__menu-burger">
@@ -42,8 +41,8 @@ function App() {
         <Route path="/" element={<MainLayout />} />
       </Routes>
 
-           {/* Комопнент воспроизведения звука, soundPower громкость в % до 100 */}
-           <AudioController />
+      {/* Комопнент воспроизведения звука, soundPower громкость в % до 100 */}
+      <AudioController />
     </div>
   );
 }

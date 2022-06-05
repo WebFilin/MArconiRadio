@@ -1,64 +1,46 @@
-import React, { useEffect, useRef } from "react";
-import { useDispatch } from "react-redux";
-
-import "./equalizer.css";
-
-// Блок скролов эквалайзера
-import EqualizerRangeHandlers from "./EqulizerRangeHandlers/EqualizerRangeHandlers";
+import React from "react";
+import { useSelector, useDispatch } from "react-redux";
 
 // Усредненое значение силы звука
 import { getEqualaizerAverage } from "../store/equlaizReduser";
-import { useSelector } from "react-redux";
 
-function Equalizer({ playPauseSwitch }) {
+function NewEqualizer({ audioObj, audioCtx }) {
   const dispatch = useDispatch();
 
-  // Передаем обьект аудио через redux из equalizReduser
-  const audio = useSelector((state) => state.equalizer.equalaizAudioObj);
-  //   Обнуляем политику источника
-  audio.crossOrigin = "anonymous";
+  // вкл выкл аудио
+  const playPauseSwitch = useSelector(
+    (state) => state.urlAudioSourse.playPauseSwitch
+  );
 
   // Передаем значение ползунков через redux для фильтров эквалайзера из equalizReduser
   let ranges = useSelector((state) => state.equalizer.rangeValueArr);
 
   //Глобальные переменные анализатора звука
-  const audioContext = useRef();
-  const audioSource = useRef();
-  const analyser = useRef();
+  //   audioCtx получаем из AudioController
+  const sourceNode = React.useRef();
+  const analyser = React.useRef();
 
-  // Управление requestAnimationFrame для getVolumeEcqualaiz
-  const powerSoundFrameSwitch = useRef();
+  // Управление requestAnimationFrame и рекруссией для volumePower
+  const powerSoundFrameSwitch = React.useRef();
 
-  // состояние открытия или закрытия бургера
-  const isOpenBurger = useSelector((state) => state.isOpenBurger.isOpen);
+  React.useEffect(() => {
+    if (audioObj) {
+      sourceNode.current = audioCtx.createMediaElementSource(audioObj);
+      analyser.current = audioCtx.createAnalyser();
+    }
 
-  if (isOpenBurger) {
-  }
+    //  Отключаем аудиоконетекст - на всякий случай
+    return () => {
+      if (audioCtx) {
+        audioCtx.close();
+      }
+    };
+  }, [audioCtx, audioObj]);
 
-
-  // Создаем инструменты анализа
-  //   useEffect(() => {
-  //     // Обходим баг при роутинге страниц и обеспечиваем кроссбраузерность
-  //     // Создаем контекс аудио
-  //     audioContext.current = new (window.AudioContext ||
-  //       window.webkitAudioContext)();
-
-  //     // Анализатор звука
-  //     analyser.current = audioContext.current.createAnalyser();
-
-  //     // Создаем аудиоузел по полученной ссылке из обьекта audio
-  //     if (audio.children) {
-  //       audioSource.current =
-  //         audioContext.current.createMediaElementSource(audio);
-  //     }
-
-  //   }, [audio]);
-
-  useEffect(() => {
+  React.useEffect(() => {
     // Локальные переменные для узла звука, анализатора, массива значений и аудиоконекста
     let analyserAudio = analyser.current;
-    let sourceAudio = audioSource.current;
-    let audioCtx = audioContext.current;
+    let sourceAudio = sourceNode.current;
 
     // Подключаем аназизатор звука
     function analaizerAudio() {
@@ -111,21 +93,18 @@ function Equalizer({ playPauseSwitch }) {
       dispatch(getEqualaizerAverage(average));
     }
 
-    // Управление стартом и остановкой эквалайзера
-    if (playPauseSwitch === true) {
-      // analaizerAudio();
+    //  Стартуем анализ звука
+    if (playPauseSwitch) {
+      analaizerAudio();
     } else {
       window.cancelAnimationFrame(powerSoundFrameSwitch.current);
     }
-  }, [playPauseSwitch, dispatch, analyser, audioContext]);
+  }, [audioCtx, playPauseSwitch, dispatch]);
 
   // Создаем набор фильтров для эквалайзера
-  useEffect(() => {
-    // Локальная переменная для аудиоконтекста фильтров эквалайзера
-    let audioCtx = audioContext.current;
-
+  React.useEffect(() => {
     // Получаем сформированные аудио обьект для эквалайзера
-    let equlizerAudioObj = audioSource.current;
+    let equlizerAudioObj = sourceNode.current;
 
     if (audioCtx && equlizerAudioObj) {
       // Фильтр и его параметры
@@ -179,19 +158,15 @@ function Equalizer({ playPauseSwitch }) {
         filters[filters.length - 1].connect(audioCtx.destination);
       }
 
-      if (playPauseSwitch === true) {
-        //   getFiltersAudio();
+      console.log(ranges);
+
+      if (playPauseSwitch) {
+        getFiltersAudio();
       }
     }
-  }, [ranges, playPauseSwitch]);
+  }, [ranges, playPauseSwitch, audioCtx]);
 
-  return (
-    <div className="equalizer-wraper">
-      <div className="equalizer__body">
-        <EqualizerRangeHandlers />
-      </div>
-    </div>
-  );
+  return <div></div>;
 }
 
-export default Equalizer;
+export default NewEqualizer;
