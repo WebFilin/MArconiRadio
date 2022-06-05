@@ -53,16 +53,6 @@ function Equalizer({ playPauseSwitch }) {
     return () => audioCtx.close();
   }, [audio]);
 
-  if (playPauseSwitch === true) {
-    if (aud) {
-      aud.play();
-    }
-  } else {
-   if (aud) {
-      aud.stop();
-    }
-   
-  }
 
   // Создаем инструменты анализа
   //   useEffect(() => {

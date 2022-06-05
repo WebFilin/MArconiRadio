@@ -18,6 +18,14 @@ function AudioController() {
     audioObj.crossOrigin = "anonymous";
   }
 
+  const audioContext = React.useRef();
+
+//   Создаем один контекст аудио для всего приложения
+  React.useEffect(() => {
+    audioContext.current = new (window.AudioContext ||
+      window.webkitAudioContext)();
+  }, []);
+
   // передаем обьект через redux
   const dispatch = useDispatch();
 
@@ -101,7 +109,7 @@ function AudioController() {
         <source src={audioSourse} />
       </audio>
 
-      <NewEqualizer audioObj={audioObj} />
+      <NewEqualizer audioObj={audioObj} audioCtx = { audioContext.current} />
     </div>
   );
 }
