@@ -25,7 +25,7 @@ import EqualizerVisualizer from "../Equalizer/EqualizerVisualizer/EqualizerVisua
 
 import StationListsDefault from "../ContentPages/StationLists/StationsListDefault/StationListsDefault";
 
-import AudioController from "../Controllers/AudioController";
+
 
 function MainLayout() {
   // Переключатель состоянии кнопки Play/Stop
@@ -81,8 +81,7 @@ function MainLayout() {
 
       {/* Подключаем список станций по умолчанию если они не выбранны пользователем */}
       {localStorage.length > 0 ? "" : <StationListsDefault />}
-      {/* Комопнент воспроизведения звука, soundPower громкость в % до 100 */}
-      <AudioController />
+ 
     </>
   );
 }

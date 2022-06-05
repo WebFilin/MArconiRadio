@@ -15,6 +15,7 @@ function Equalizer({ playPauseSwitch }) {
 
   // Передаем обьект аудио через redux из equalizReduser
   const audio = useSelector((state) => state.equalizer.equalaizAudioObj);
+  //   Обнуляем политику источника
   audio.crossOrigin = "anonymous";
 
   // Передаем значение ползунков через redux для фильтров эквалайзера из equalizReduser
@@ -28,29 +29,58 @@ function Equalizer({ playPauseSwitch }) {
   // Управление requestAnimationFrame для getVolumeEcqualaiz
   const powerSoundFrameSwitch = useRef();
 
-  //  Cтейт для обьекта аудио
-  const [audioSourse, setAudioSourse] = React.useState("");
+  // состояние открытия или закрытия бургера
+  const isOpenBurger = useSelector((state) => state.isOpenBurger.isOpen);
 
-  React.useEffect(() => {
-    setAudioSourse(audio);
+  if (isOpenBurger) {
+  }
+
+  let aud, gainNode;
+
+  useEffect(() => {
+    const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    aud = new Audio(audio.children);
+    const sourceNode = audioCtx.createMediaElementSource(aud);
+    gainNode = audioCtx.createGain();
+    sourceNode.connect(gainNode);
+
+    gainNode.gain.value = 10;
+
+    gainNode.connect(audioCtx.destination)
+
+    console.log(sourceNode)
+
+    return () => audioCtx.close();
   }, [audio]);
 
-  // Создаем инструменты анализа
-  useEffect(() => {
-    // Обходим баг при роутинге страниц и обеспечиваем кроссбраузерность
-    // Создаем контекс аудио
-    audioContext.current = new (window.AudioContext ||
-      window.webkitAudioContext)();
-
-    // Создаем аудиоузел по полученной ссылке из обьекта audio
-    if (audioSourse.children) {
-      audioSource.current =
-        audioContext.current.createMediaElementSource(audioSourse);
-
-      // Анализатор звука
-      analyser.current = audioContext.current.createAnalyser();
+  if (playPauseSwitch === true) {
+    if (aud) {
+      aud.play();
     }
-  }, [audioSourse]);
+  } else {
+   if (aud) {
+      aud.stop();
+    }
+   
+  }
+
+  // Создаем инструменты анализа
+  //   useEffect(() => {
+  //     // Обходим баг при роутинге страниц и обеспечиваем кроссбраузерность
+  //     // Создаем контекс аудио
+  //     audioContext.current = new (window.AudioContext ||
+  //       window.webkitAudioContext)();
+
+  //     // Анализатор звука
+  //     analyser.current = audioContext.current.createAnalyser();
+
+  //     // Создаем аудиоузел по полученной ссылке из обьекта audio
+  //     if (audio.children) {
+  //       audioSource.current =
+  //         audioContext.current.createMediaElementSource(audio);
+  //     }
+
+  //   }, [audio]);
 
   useEffect(() => {
     // Локальные переменные для узла звука, анализатора, массива значений и аудиоконекста
@@ -111,11 +141,11 @@ function Equalizer({ playPauseSwitch }) {
 
     // Управление стартом и остановкой эквалайзера
     if (playPauseSwitch === true) {
-      analaizerAudio();
+      // analaizerAudio();
     } else {
       window.cancelAnimationFrame(powerSoundFrameSwitch.current);
     }
-  }, [playPauseSwitch, dispatch, audioSourse, analyser, audioContext]);
+  }, [playPauseSwitch, dispatch, analyser, audioContext]);
 
   // Создаем набор фильтров для эквалайзера
   useEffect(() => {
@@ -178,10 +208,10 @@ function Equalizer({ playPauseSwitch }) {
       }
 
       if (playPauseSwitch === true) {
-        getFiltersAudio();
+        //   getFiltersAudio();
       }
     }
-  }, [audioSourse, ranges, playPauseSwitch]);
+  }, [ranges, playPauseSwitch]);
 
   return (
     <div className="equalizer-wraper">

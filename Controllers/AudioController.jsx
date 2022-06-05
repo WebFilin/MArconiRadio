@@ -1,107 +1,99 @@
-import React from 'react';
+import React from "react";
 
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from "react-redux";
 
-import { getEqualaizerAudioObj } from "../store/equlaizReduser"
+import { getEqualaizerAudioObj } from "../store/equlaizReduser";
 
-import { getVisualLoadState } from "../store/visualLoadAudio"
+import { getVisualLoadState } from "../store/visualLoadAudio";
 
 function AudioController() {
+  // Сформированный обьект аудио
+  const audioRef = React.useRef();
+  let audioObj = audioRef.current;
 
-   // Сформированный обьект аудио
-   const audioRef = React.useRef()
-   let audioObj = audioRef.current
+  // передаем обьект через redux
+  const dispatch = useDispatch();
 
-   // передаем обьект через redux
-   const dispatch = useDispatch()
+  // Уровень громокости из scrollReduser
+  const soundLvl = useSelector((state) => state.volume.volume);
 
-   // Уровень громокости из scrollReduser
-   const soundLvl = useSelector(state => state.volume.volume)
+  // получаем источник аудио
+  const urlAudio = useSelector((state) => state.urlAudioSourse.urlAudio);
 
-   // получаем источник аудио
-   const urlAudio = useSelector(state => state.urlAudioSourse.urlAudio)
+  // вкл выкл аудио
+  const playPauseSwitch = useSelector(
+    (state) => state.urlAudioSourse.playPauseSwitch
+  );
 
-   // вкл выкл аудио
-   const playPauseSwitch = useSelector(state => state.urlAudioSourse.playPauseSwitch)
+  const [audioSourse, setAudioSourse] = React.useState("");
 
-   const [audioSourse, setAudioSourse] = React.useState(null)
+  // Получаем источник звука через urlAudioSourseReduser
+  React.useEffect(() => {
+    setAudioSourse(urlAudio);
+  }, [urlAudio]);
 
-   // Управление аудио
-   React.useEffect(() => {
+  // Управление аудио
+  React.useEffect(() => {
+    // обработчик проигрывания звука
+    function canPlay(obj) {
+      // Старт воспроизведения по готовности
 
-      // Получаем источник звука через urlAudioSourseReduser
-      setAudioSourse(urlAudio)
+      obj.addEventListener("canplay", () => {
+        if (playPauseSwitch) {
+          obj.play();
+        } else {
+          obj.pause();
+        }
+      });
 
-      // обработчик проигрывания звука
-      function canPlay(obj) {
+      let loadStart = () => {
+        dispatch(getVisualLoadState(false));
+      };
 
-         // Старт воспроизведения по готовности
+      let loadedData = () => {
+        dispatch(getVisualLoadState(true));
+      };
 
-         obj.addEventListener("canplay", () => {
-            if (playPauseSwitch) {
-               obj.play()
-            }
+      if (playPauseSwitch === true) {
+        // слушаем старт загрузки аудио
+        obj.addEventListener("loadstart", loadStart);
 
-            else {
-               obj.pause()
-            }
-         })
+        // слушаем окончание загрузки
+        obj.addEventListener("loadeddata", loadedData);
+      } else {
+        obj.removeEventListener("loadstart", loadStart);
+        obj.removeEventListener("loadeddata", loadedData);
+      }
+    }
 
-         let loadStart = () => {
-            dispatch(getVisualLoadState(false))
-         }
+    // Обработчик динамического изменения источника звука
+    // Закрывает баг с прерыванием проигрывания и крашем приложения при смене url источника
+    if (audioObj) {
+      audioObj.pause();
+      audioObj.load();
+      canPlay(audioObj);
+    }
+  }, [playPauseSwitch, audioObj, dispatch, audioSourse, urlAudio]);
 
-         let loadedData = () => {
-            dispatch(getVisualLoadState(true))
-         }
-
-         if (playPauseSwitch === true) {
-
-            // слушаем старт загрузки аудио
-            obj.addEventListener("loadstart", loadStart)
-
-            // слушаем окончание загрузки
-            obj.addEventListener("loadeddata", loadedData)
-         }
-
-         else {
-            obj.removeEventListener("loadstart", loadStart)
-            obj.removeEventListener("loadeddata", loadedData)
-         }
+  // Управление громкостью
+  React.useEffect(() => {
+    if (audioObj) {
+      if (soundLvl) {
+        audioObj.volume = soundLvl / 10;
       }
 
-      // Обработчик динамического изменения источника звука
-      // Закрывает баг с прерыванием проигрывания и крашем приложения при смене url источника
-      if (audioObj) {
-         audioObj.pause()
-         audioObj.load()
-         canPlay(audioObj)
-      }
+      // Передаем аудио элемент в эквалайзер через redux и equlaizReduser
+      dispatch(getEqualaizerAudioObj(audioObj));
+    }
+  }, [soundLvl, audioObj, dispatch]);
 
-   }, [playPauseSwitch, audioObj, dispatch, audioSourse, urlAudio])
-
-   // Управление громкостью
-   React.useEffect(() => {
-
-      if (audioObj) {
-
-         if (soundLvl) {
-            audioObj.volume = soundLvl / 10
-         }
-
-         // Передаем аудио элемент в эквалайзер через redux и equlaizReduser
-         dispatch(getEqualaizerAudioObj(audioObj))
-      }
-
-   }, [soundLvl, audioObj, dispatch])
-
-   return (
-      <div>
-         <audio ref={audioRef} type="audio/mpeg" >
-            <source src={audioSourse} />
-         </audio>
-      </div>
-   );
+  return (
+    <div>
+      <audio ref={audioRef} type="audio/mpeg">
+        <source src={audioSourse} />
+      </audio>
+    </div>
+  );
 }
 
 export default AudioController;
