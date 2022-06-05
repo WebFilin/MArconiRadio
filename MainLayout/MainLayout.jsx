@@ -25,7 +25,8 @@ import EqualizerVisualizer from "../Equalizer/EqualizerVisualizer/EqualizerVisua
 
 import StationListsDefault from "../ContentPages/StationLists/StationsListDefault/StationListsDefault";
 
-
+// Блок скролов эквалайзера
+import EqualizerRangeHandlers from "../Equalizer/EqulizerRangeHandlers/EqualizerRangeHandlers";
 
 function MainLayout() {
   // Переключатель состоянии кнопки Play/Stop
@@ -69,7 +70,9 @@ function MainLayout() {
         <div className="app-wraper__display">
           <EqualizerVisualizer playPauseSwitch={playStopSwitch} />
           <RadioDisplay />
-          <Equlalizer playPauseSwitch={playStopSwitch} />
+          {/* <Equlalizer playPauseSwitch={playStopSwitch} /> */}
+
+          <EqualizerRangeHandlers />
         </div>
 
         <div className="app-wraper__btn-tuning">
@@ -81,7 +84,6 @@ function MainLayout() {
 
       {/* Подключаем список станций по умолчанию если они не выбранны пользователем */}
       {localStorage.length > 0 ? "" : <StationListsDefault />}
- 
     </>
   );
 }

@@ -6,10 +6,17 @@ import { getEqualaizerAudioObj } from "../store/equlaizReduser";
 
 import { getVisualLoadState } from "../store/visualLoadAudio";
 
+import NewEqualizer from "../Equalizer/NewEqualizer";
+
 function AudioController() {
   // Сформированный обьект аудио
   const audioRef = React.useRef();
   let audioObj = audioRef.current;
+
+  //  отключаем политику CORS
+  if (audioObj) {
+    audioObj.crossOrigin = "anonymous";
+  }
 
   // передаем обьект через redux
   const dispatch = useDispatch();
@@ -25,7 +32,8 @@ function AudioController() {
     (state) => state.urlAudioSourse.playPauseSwitch
   );
 
-  const [audioSourse, setAudioSourse] = React.useState("");
+  //   Переменная для установки источника звука на странице
+  const [audioSourse, setAudioSourse] = React.useState(null);
 
   // Получаем источник звука через urlAudioSourseReduser
   React.useEffect(() => {
@@ -92,6 +100,8 @@ function AudioController() {
       <audio ref={audioRef} type="audio/mpeg">
         <source src={audioSourse} />
       </audio>
+
+      <NewEqualizer audioObj={audioObj} />
     </div>
   );
 }
