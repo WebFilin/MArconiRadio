@@ -35,24 +35,6 @@ function Equalizer({ playPauseSwitch }) {
   if (isOpenBurger) {
   }
 
-  let aud, gainNode;
-
-  useEffect(() => {
-    const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-    aud = new Audio(audio.children);
-    const sourceNode = audioCtx.createMediaElementSource(aud);
-    gainNode = audioCtx.createGain();
-    sourceNode.connect(gainNode);
-
-    gainNode.gain.value = 10;
-
-    gainNode.connect(audioCtx.destination)
-
-    console.log(sourceNode)
-
-    return () => audioCtx.close();
-  }, [audio]);
-
 
   // Создаем инструменты анализа
   //   useEffect(() => {
