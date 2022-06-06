@@ -139,28 +139,29 @@ function NewEqualizer({ audioObj, audioCtx }) {
 
       // Управляем усилинием частот фильтра через ползунки эквалайзера
       // через isFinite убираем баг с типом значения с плавающией запятой и протяжкой ползунка вместо клика
-      function getFiltersAudio() {
-        filters[0].gain.value = isFinite(Number(ranges[0]));
-        filters[1].gain.value = isFinite(Number(ranges[1]));
-        filters[2].gain.value = isFinite(Number(ranges[2]));
-        filters[3].gain.value = isFinite(Number(ranges[3]));
-        filters[4].gain.value = isFinite(Number(ranges[4]));
-        filters[5].gain.value = isFinite(Number(ranges[5]));
-        filters[6].gain.value = isFinite(Number(ranges[6]));
-        filters[7].gain.value = isFinite(Number(ranges[7]));
-        filters[8].gain.value = isFinite(Number(ranges[8]));
-        filters[9].gain.value = isFinite(Number(ranges[9]));
 
-        // источник цепляем к первому фильтру
-        equlizerAudioObj.connect(filters[0]);
+      // if (playPauseSwitch) {
+      //   getFiltersAudio();
 
-        // а последний фильтр - к выходу
-        filters[filters.length - 1].connect(audioCtx.destination);
-      }
+      filters[0].gain.value = Number(ranges[0]);
+      filters[1].gain.value = Number(ranges[1]);
+      filters[2].gain.value = Number(ranges[2]);
+      filters[3].gain.value = Number(ranges[3]);
+      filters[4].gain.value = Number(ranges[4]);
+      filters[5].gain.value = Number(ranges[5]);
+      filters[6].gain.value = Number(ranges[6]);
+      filters[7].gain.value = Number(ranges[7]);
+      filters[8].gain.value = Number(ranges[8]);
+      filters[9].gain.value = Number(ranges[9]);
 
-      if (playPauseSwitch) {
-        getFiltersAudio();
-      }
+      console.log( filters[0].gain);
+
+      // источник цепляем к первому фильтру
+      equlizerAudioObj.connect(filters[0]);
+
+      // а последний фильтр - к выходу
+      filters[filters.length - 1].connect(audioCtx.destination);
+      // }
     }
   }, [ranges, playPauseSwitch, audioCtx]);
 
