@@ -20,7 +20,7 @@ function AudioController() {
 
   const audioContext = React.useRef();
 
-//   Создаем один контекст аудио для всего приложения
+  //   Создаем один контекст аудио для всего приложения
   React.useEffect(() => {
     audioContext.current = new (window.AudioContext ||
       window.webkitAudioContext)();
@@ -109,7 +109,7 @@ function AudioController() {
         <source src={audioSourse} />
       </audio>
 
-      <NewEqualizer audioObj={audioObj} audioCtx = { audioContext.current} />
+      <NewEqualizer audioObj={audioObj} audioCtx={audioContext.current} />
     </div>
   );
 }

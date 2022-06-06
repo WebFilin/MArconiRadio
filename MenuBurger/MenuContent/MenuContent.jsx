@@ -10,15 +10,19 @@ import StationSearchControl from "../../StationSearchControls/StationSearchContr
 
 import StationLists from "../../ContentPages/StationLists/StationLists";
 
+import Error from "../../ContentPages/Error/Error";
+
 function MenuContent() {
   return (
     <div className="menu__content-wraper">
       {/* Подключаем компоненты в навигацию и для отображения*/}
 
       <Routes>
+        <Route path="/" element={""} />
         <Route path="/list" element={<StationLists />} />
         <Route path="/control" element={<StationSearchControl />} />
         <Route path="/about" element={<About />} />
+        <Route path="*" element={<Error />} />
       </Routes>
     </div>
   );

@@ -139,29 +139,22 @@ function NewEqualizer({ audioObj, audioCtx }) {
 
       // Управляем усилинием частот фильтра через ползунки эквалайзера
       // через isFinite убираем баг с типом значения с плавающией запятой и протяжкой ползунка вместо клика
-
-      // if (playPauseSwitch) {
-      //   getFiltersAudio();
-
-      filters[0].gain.value = Number(ranges[0]);
-      filters[1].gain.value = Number(ranges[1]);
-      filters[2].gain.value = Number(ranges[2]);
-      filters[3].gain.value = Number(ranges[3]);
-      filters[4].gain.value = Number(ranges[4]);
-      filters[5].gain.value = Number(ranges[5]);
-      filters[6].gain.value = Number(ranges[6]);
-      filters[7].gain.value = Number(ranges[7]);
-      filters[8].gain.value = Number(ranges[8]);
-      filters[9].gain.value = Number(ranges[9]);
-
-      console.log( filters[0].gain);
+      filters[0].gain.value = isFinite(ranges[0]) ? Number(ranges[0]) : 0;
+      filters[1].gain.value = isFinite(ranges[1]) ? Number(ranges[1]) : 0;
+      filters[2].gain.value = isFinite(ranges[2]) ? Number(ranges[2]) : 0;
+      filters[3].gain.value = isFinite(ranges[3]) ? Number(ranges[3]) : 0;
+      filters[4].gain.value = isFinite(ranges[4]) ? Number(ranges[4]) : 0;
+      filters[5].gain.value = isFinite(ranges[5]) ? Number(ranges[5]) : 0;
+      filters[6].gain.value = isFinite(ranges[6]) ? Number(ranges[6]) : 0;
+      filters[7].gain.value = isFinite(ranges[7]) ? Number(ranges[7]) : 0;
+      filters[8].gain.value = isFinite(ranges[8]) ? Number(ranges[8]) : 0;
+      filters[9].gain.value = isFinite(ranges[9]) ? Number(ranges[9]) : 0;
 
       // источник цепляем к первому фильтру
       equlizerAudioObj.connect(filters[0]);
 
       // а последний фильтр - к выходу
       filters[filters.length - 1].connect(audioCtx.destination);
-      // }
     }
   }, [ranges, playPauseSwitch, audioCtx]);
 
