@@ -23,22 +23,22 @@ function StationListsDefault() {
 
       let stationParams = { land: country, station: numStation }
 
-      if (valueScroll === 4) {
+      if (valueScroll === 0) {
          setCountry("FR")
          setNumStation(1)
       }
 
-      else if (valueScroll === 8) {
+      else if (valueScroll === 6) {
          setCountry("CH")
          setNumStation(0)
       }
 
-      else if (valueScroll === 13) {
+      else if (valueScroll === 11) {
          setCountry("US")
          setNumStation(0)
       }
 
-      else if (valueScroll === 17) {
+      else if (valueScroll === 15) {
          setCountry("DE")
          setNumStation(2)
       }
@@ -48,7 +48,7 @@ function StationListsDefault() {
          setNumStation(1)
       }
 
-      else if (valueScroll === 26) {
+      else if (valueScroll === 24) {
          setCountry("IT")
          setNumStation(3)
       }

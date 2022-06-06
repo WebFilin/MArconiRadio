@@ -76,6 +76,9 @@ function EqualizerRangeHandlers() {
     getValus();
   }, [getValus]);
 
+  // Передаем парамтеры ползунков в localStoradge
+  React.useEffect(() => {}, []);
+
   return (
     <div className="equlizer-handlers__wraper">
       <div className="equlizer-handlers__body">
