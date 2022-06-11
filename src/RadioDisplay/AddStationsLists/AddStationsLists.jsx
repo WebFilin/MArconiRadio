@@ -65,7 +65,7 @@ function AddStationsLists() {
             <ItemsAddStations
               contryName={arrDrow[0].country}
               url={arrDrow[0].url}
-              min={2}
+              min={0}
               max={5}
               dot={"down"}
             />
