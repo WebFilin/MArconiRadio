@@ -45,9 +45,21 @@ function AudioController() {
   }, []);
 
   // Получаем источник звука через urlAudioSourseReduser
+  //   Проверяем URL
   React.useEffect(() => {
     setAudioSourse(urlAudio);
-  }, [urlAudio]);
+
+    async function fetchMovies404() {
+      const response = await fetch(urlAudio);
+      if (!response.ok) {
+        alert("radio station not available");
+      }
+    }
+
+    if (playPauseSwitch) {
+      fetchMovies404();
+    }
+  }, [urlAudio, playPauseSwitch]);
 
   // Управление аудио
   React.useEffect(() => {
