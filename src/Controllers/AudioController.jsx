@@ -16,15 +16,10 @@ function AudioController() {
   //  отключаем политику CORS
   if (audioObj) {
     audioObj.crossOrigin = "anonymous";
+    audioObj.autoplay = true;
   }
 
   const audioContext = React.useRef();
-
-  //   Создаем один контекст аудио для всего приложения
-  React.useEffect(() => {
-    audioContext.current = new (window.AudioContext ||
-      window.webkitAudioContext)();
-  }, []);
 
   // передаем обьект через redux
   const dispatch = useDispatch();
@@ -43,6 +38,12 @@ function AudioController() {
   //   Переменная для установки источника звука на странице
   const [audioSourse, setAudioSourse] = React.useState(null);
 
+  //   Создаем один контекст аудио для всего приложения
+  React.useEffect(() => {
+    audioContext.current = new (window.AudioContext ||
+      window.webkitAudioContext)();
+  }, []);
+
   // Получаем источник звука через urlAudioSourseReduser
   React.useEffect(() => {
     setAudioSourse(urlAudio);
@@ -53,12 +54,14 @@ function AudioController() {
     // обработчик проигрывания звука
     function canPlay(obj) {
       // Старт воспроизведения по готовности
-
       obj.addEventListener("canplay", () => {
         if (playPauseSwitch) {
+          audioContext.current.resume();
           obj.play();
+          obj.muted = false;
         } else {
           obj.pause();
+          obj.muted = true;
         }
       });
 
@@ -70,7 +73,7 @@ function AudioController() {
         dispatch(getVisualLoadState(true));
       };
 
-      if (playPauseSwitch === true) {
+      if (playPauseSwitch) {
         // слушаем старт загрузки аудио
         obj.addEventListener("loadstart", loadStart);
 
@@ -105,7 +108,7 @@ function AudioController() {
 
   return (
     <div>
-      <audio ref={audioRef} type="audio/mpeg">
+      <audio ref={audioRef} type="audio/mpeg" allow="autoplay">
         <source src={audioSourse} />
       </audio>
 

@@ -24,12 +24,12 @@ function NewEqualizer({ audioObj, audioCtx }) {
   const powerSoundFrameSwitch = React.useRef();
 
   React.useEffect(() => {
-    if (audioObj) {
+    if (audioCtx !== undefined && audioObj) {
       sourceNode.current = audioCtx.createMediaElementSource(audioObj);
       analyser.current = audioCtx.createAnalyser();
     }
 
-    //  Отключаем аудиоконетекст - на всякий случай
+    //   Отключаем аудиоконетекст - на всякий случай
     return () => {
       if (audioCtx) {
         audioCtx.close();
