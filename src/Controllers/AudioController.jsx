@@ -51,12 +51,13 @@ function AudioController() {
 
     async function fetchMovies404() {
       const response = await fetch(urlAudio);
+
       if (!response.ok) {
         alert("radio station not available");
       }
     }
 
-    if (playPauseSwitch) {
+    if (playPauseSwitch && urlAudio !== undefined) {
       fetchMovies404();
     }
   }, [urlAudio, playPauseSwitch]);
