@@ -1,69 +1,81 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useEffect, useState } from "react";
 
-import "./equlaizerRange.css"
+import "./equlaizerRange.css";
 
-function EqulaizerRanges({ waveRange, params }) {
+function EqulaizerRanges({ waveRange, params, valueZerro }) {
+  // Переменные параметров компонента
+  let min = params.minWave;
+  let max = params.maxWave;
+  let step = params.step;
+  let defaultValue = params.defaultValue;
+  let CoeffValueDec = params.CoefficientValueDec;
+  let CoeffValueInc = params.CoefficientValueInc;
+  let ColorDec = params.ColorDec;
+  let ColorInc = params.ColorInc;
 
-   // Переменные параметров компонента
-   let min = params.minWave
-   let max = params.maxWave
-   let step = params.step
-   let defaultValue = params.defaultValue
-   let CoeffValueDec = params.CoefficientValueDec
-   let CoeffValueInc = params.CoefficientValueInc
-   let ColorDec = params.ColorDec
-   let ColorInc = params.ColorInc
+  // Получаем ползунок
+  const range = useRef();
 
-   // Получаем ползунок
-   const range = useRef()
+  // Получаем значение ползунка при прокрутке - для градиента заливки
+  const [rangeValue, setRangeValue] = useState();
 
-   // Получаем значение ползунка при прокрутке
-   const [rangeValue, setRangeValue] = useState()
+  //   Сбрасываем ползунки к нулевым значениям
+  React.useEffect(() => {
+    if (valueZerro && range.current) {
+      setRangeValue();
+      range.current.value = 0;
+    }
+  }, [valueZerro]);
 
-   // Устанавливаем значение фона до ползунка
-   const [rangeBackground, setRangeBackground] = useState(null)
+  // Устанавливаем значение фона до ползунка
+  const [rangeBackground, setRangeBackground] = useState(null);
 
-   useEffect(() => {
+  useEffect(() => {
+    // Массив диапазона значений ползунка, границы пропсы min max
+    let arrValue = [];
 
-      // Массив диапазона значений ползунка, границы пропсы min max
-      let arrValue = []
+    for (let i = min; i < max; i++) {
+      arrValue.push(i);
+    }
 
-      for (let i = min; i < max; i++) {
-         arrValue.push(i)
-      }
+    // Коофициент для заполнения полосы прокрутки цветом на всем протяжении без потери
+    let rangeCoefficient = 0;
+    rangeValue > 0
+      ? (rangeCoefficient = CoeffValueDec)
+      : (rangeCoefficient = CoeffValueInc);
 
-      // Коофициент для заполнения полосы прокрутки цветом на всем протяжении без потери
-      let rangeCoefficient = 0
-      rangeValue > 0 ? rangeCoefficient = CoeffValueDec : rangeCoefficient = CoeffValueInc
+    // расчет % сдвига для градиента шкалы ползунка
+    let pctValueColor = (rangeValue * 100) / arrValue.length + rangeCoefficient;
 
-      // расчет % сдвига для градиента шкалы ползунка 
-      let pctValueColor = (rangeValue * 100) / arrValue.length + rangeCoefficient
+    // Параметры бэкграунда шкалы ползунка
+    let background = `
+      -webkit-linear-gradient(left, ${ColorDec} 0%, ${ColorDec} ${
+      pctValueColor + 15
+    }%, ${ColorInc} ${pctValueColor}%, ${ColorInc} 100%)`;
+    setRangeBackground(background);
+  }, [rangeValue, CoeffValueDec, CoeffValueInc, ColorDec, ColorInc, max, min]);
 
-      // Параметры бэкграунда шкалы ползунка
-      let background = `
-      -webkit-linear-gradient(left, ${ColorDec} 0%, ${ColorDec} ${pctValueColor + 15}%, ${ColorInc} ${pctValueColor}%, ${ColorInc} 100%)`
-      setRangeBackground(background)
+  return (
+    <div className="equlizer-range__wraper">
+      <div className="equlizer-range-txt">{waveRange}</div>
 
-   }, [rangeValue, CoeffValueDec, CoeffValueInc, ColorDec, ColorInc, max, min])
-
-
-   return (
-      <div className='equlizer-range__wraper'>
-
-         <div className="equlizer-range-txt">
-            {waveRange}
-         </div>
-
-         <div className="equlizer-range__body" >
-            <input ref={range} onChange={(elem) => {
-               setRangeValue(elem.target.value)
-            }}
-
-               style={{ background: rangeBackground }}
-               className='equlizer-range' type="range" min={min} max={max} step={step} defaultValue={defaultValue} ></ input >
-         </div>
+      <div className="equlizer-range__body">
+        <input
+          ref={range}
+          onChange={(elem) => {
+            setRangeValue(elem.target.value);
+          }}
+          style={{ background: rangeBackground }}
+          className="equlizer-range"
+          type="range"
+          min={min}
+          max={max}
+          step={step}
+          defaultValue={defaultValue}
+        ></input>
       </div>
-   );
+    </div>
+  );
 }
 
 export default EqulaizerRanges;

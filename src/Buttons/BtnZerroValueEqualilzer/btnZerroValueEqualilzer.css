@@ -1,0 +1,42 @@
+.equlizer-btn__zerro_wrapper {
+}
+.equlizer-btn__zerro-body {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+  border: 2px solid red;
+  cursor: pointer;
+}
+
+.equlizer-btn__zerro-title {
+  display: inline-block;
+  margin: 4px 0px 0px 35px;
+  text-align: center;
+  color: var(--txt-controls-color);
+  font-size: var(--controls-font-size);
+  letter-spacing: 1px;
+  text-shadow: 0 0 10px rgb(0 0 0);
+  text-transform: uppercase;
+}
+
+/* Large desktops and laptops */
+@media (max-width: 1200px) {
+  .equlizer-btn__zerro-body {
+    width: 15px;
+    height: 15px;
+  }
+}
+/* Landscape tablets and medium desktops */
+@media (min-width: 992px) and (max-width: 1199px) {
+  .equlizer-btn__zerro-body {
+    width: 20px;
+    height: 20px;
+  }
+}
+/* Portrait tablets and small desktops */
+@media (min-width: 768px) and (max-width: 991px) {
+}
+/* Landscape phones and portrait tablets */
+@media (max-width: 767px) {
+}

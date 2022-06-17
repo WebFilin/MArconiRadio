@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback } from "react";
+import React, { useState } from "react";
 
 import "./equalizerRangeHandlers.css";
 
@@ -12,6 +12,8 @@ import EqualizerScaleRange from "../EqualizerScaleRange/EqualizerScaleRange";
 
 // Передаем значение полей ползунков эквалайзера и их параметры в redux
 import { getEqualaizerRangesArr } from "../../store/equlaizReduser";
+
+import BtnZerroValueEqualilzer from "../../Buttons/BtnZerroValueEqualilzer/BtnZerroValueEqualilzer";
 
 function EqualizerRangeHandlers() {
   const dispatch = useDispatch();
@@ -40,12 +42,54 @@ function EqualizerRangeHandlers() {
   const [range14000, setRange14000] = useState(0);
   const [range16000, setRange16000] = useState(0);
 
-  React.useEffect(() => {
-    let allRangeValues = [range60, range170];
+  const [rangeValueZerro, setRangeValueZerro] = React.useState(false);
 
-    // Передаем значение полей ползунков эквалайзера в redux
-    dispatch(getEqualaizerRangesArr(allRangeValues));
-  }, [range60, range170, dispatch]);
+  // Передаем значение полей ползунков эквалайзера в redux
+  React.useEffect(() => {
+    const arrRangesValue = [
+      range60,
+      range170,
+      range310,
+      range600,
+      range1000,
+      range3000,
+      range6000,
+      range12000,
+      range14000,
+      range16000,
+    ];
+    dispatch(getEqualaizerRangesArr(arrRangesValue));
+  }, [
+    dispatch,
+    range60,
+    range170,
+    range310,
+    range600,
+    range1000,
+    range3000,
+    range6000,
+    range12000,
+    range14000,
+    range16000,
+  ]);
+
+  //   Функция для обнуления ползунков эквалайзера
+  function rangeValuesZerro() {
+    //  Визуальное обнуление ползунков
+    setRangeValueZerro(true);
+
+    //  Обнуление фильтров эквалайзера
+    setRange60(0);
+    setRange170(0);
+    setRange310(0);
+    setRange600(0);
+    setRange1000(0);
+    setRange3000(0);
+    setRange6000(0);
+    setRange12000(0);
+    setRange14000(0);
+    setRange16000(0);
+  }
 
   return (
     <div className="equlizer-handlers__wraper">
@@ -54,102 +98,156 @@ function EqualizerRangeHandlers() {
         <div
           className="equlizer-handlers__element"
           onChange={(elem) => {
+            setRangeValueZerro(false);
             setRange60(elem.target.value);
           }}
         >
-          <EqualizerRanges waveRange={"60"} params={rangesParams} />
+          <EqualizerRanges
+            waveRange={"60"}
+            params={rangesParams}
+            valueZerro={rangeValueZerro}
+          />
         </div>
 
         <EqualizerScaleRange high={"-"} middle={"-"} low={"-"} />
         <div
           className="equlizer-handlers__element"
           onChange={(elem) => {
+            setRangeValueZerro(false);
             setRange170(elem.target.value);
           }}
         >
-          <EqualizerRanges waveRange={"170"} params={rangesParams} />
+          <EqualizerRanges
+            waveRange={"170"}
+            params={rangesParams}
+            valueZerro={rangeValueZerro}
+          />
         </div>
 
         <EqualizerScaleRange high={"-"} middle={"-"} low={"-"} />
         <div
           className="equlizer-handlers__element"
           onChange={(elem) => {
+            setRangeValueZerro(false);
             setRange310(elem.target.value);
           }}
         >
-          <EqualizerRanges waveRange={"310"} params={rangesParams} />
+          <EqualizerRanges
+            waveRange={"310"}
+            params={rangesParams}
+            valueZerro={rangeValueZerro}
+          />
         </div>
 
         <EqualizerScaleRange high={"-"} middle={"-"} low={"-"} />
         <div
           className="equlizer-handlers__element"
           onChange={(elem) => {
+            setRangeValueZerro(false);
             setRange600(elem.target.value);
           }}
         >
-          <EqualizerRanges waveRange={"600"} params={rangesParams} />
+          <EqualizerRanges
+            waveRange={"600"}
+            params={rangesParams}
+            valueZerro={rangeValueZerro}
+          />
         </div>
 
         <EqualizerScaleRange high={"-"} middle={"-"} low={"-"} />
         <div
           className="equlizer-handlers__element"
           onChange={(elem) => {
+            setRangeValueZerro(false);
             setRange1000(elem.target.value);
           }}
         >
-          <EqualizerRanges waveRange={"1K"} params={rangesParams} />
+          <EqualizerRanges
+            waveRange={"1K"}
+            params={rangesParams}
+            valueZerro={rangeValueZerro}
+          />
         </div>
 
         <EqualizerScaleRange high={"-"} middle={"-"} low={"-"} />
         <div
           className="equlizer-handlers__element"
           onChange={(elem) => {
+            setRangeValueZerro(false);
             setRange3000(elem.target.value);
           }}
         >
-          <EqualizerRanges waveRange={"3K"} params={rangesParams} />
+          <EqualizerRanges
+            waveRange={"3K"}
+            params={rangesParams}
+            valueZerro={rangeValueZerro}
+          />
         </div>
 
         <EqualizerScaleRange high={"-"} middle={"-"} low={"-"} />
         <div
           className="equlizer-handlers__element"
           onChange={(elem) => {
+            setRangeValueZerro(false);
             setRange6000(elem.target.value);
           }}
         >
-          <EqualizerRanges waveRange={"6K"} params={rangesParams} />
+          <EqualizerRanges
+            waveRange={"6K"}
+            params={rangesParams}
+            valueZerro={rangeValueZerro}
+          />
         </div>
 
         <EqualizerScaleRange high={"-"} middle={"-"} low={"-"} />
         <div
           className="equlizer-handlers__element"
           onChange={(elem) => {
+            setRangeValueZerro(false);
             setRange12000(elem.target.value);
           }}
         >
-          <EqualizerRanges waveRange={"12K"} params={rangesParams} />
+          <EqualizerRanges
+            waveRange={"12K"}
+            params={rangesParams}
+            valueZerro={rangeValueZerro}
+          />
         </div>
 
         <EqualizerScaleRange high={"-"} middle={"-"} low={"-"} />
         <div
           className="equlizer-handlers__element"
           onChange={(elem) => {
+            setRangeValueZerro(false);
             setRange14000(elem.target.value);
           }}
         >
-          <EqualizerRanges waveRange={"14K"} params={rangesParams} />
+          <EqualizerRanges
+            waveRange={"14K"}
+            params={rangesParams}
+            valueZerro={rangeValueZerro}
+          />
         </div>
 
         <EqualizerScaleRange high={"-"} middle={"-"} low={"-"} />
         <div
           className="equlizer-handlers__element"
           onChange={(elem) => {
+            setRangeValueZerro(false);
             setRange16000(elem.target.value);
           }}
         >
-          <EqualizerRanges waveRange={"16K"} params={rangesParams} />
+          <EqualizerRanges
+            waveRange={"16K"}
+            params={rangesParams}
+            valueZerro={rangeValueZerro}
+          />
         </div>
         <EqualizerScaleRange high={"-"} middle={"-"} low={"-"} />
+      </div>
+
+      <div className="equlizer-handlers__btn-zerro" onClick={rangeValuesZerro}>
+        <BtnZerroValueEqualilzer />
       </div>
     </div>
   );
