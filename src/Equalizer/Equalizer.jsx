@@ -101,6 +101,8 @@ function NewEqualizer({ audioObj, audioCtx }) {
     }
   }, [audioCtx, playPauseSwitch, dispatch]);
 
+  React.useEffect(() => {}, []);
+
   // Создаем набор фильтров для эквалайзера
   React.useEffect(() => {
     // Получаем сформированные аудио обьект для эквалайзера
@@ -131,6 +133,7 @@ function NewEqualizer({ audioObj, audioCtx }) {
           prev.connect(curr);
           return curr;
         });
+
         return filters;
       }
 
@@ -140,6 +143,7 @@ function NewEqualizer({ audioObj, audioCtx }) {
       // Управляем усилинием частот фильтра через ползунки эквалайзера
       // через isFinite убираем баг с типом значения с плавающией запятой и протяжкой ползунка вместо клика
       filters[0].gain.value = isFinite(ranges[0]) ? Number(ranges[0]) : 0;
+
       filters[1].gain.value = isFinite(ranges[1]) ? Number(ranges[1]) : 0;
       filters[2].gain.value = isFinite(ranges[2]) ? Number(ranges[2]) : 0;
       filters[3].gain.value = isFinite(ranges[3]) ? Number(ranges[3]) : 0;
@@ -155,9 +159,13 @@ function NewEqualizer({ audioObj, audioCtx }) {
 
       // а последний фильтр - к выходу
       filters[filters.length - 1].connect(audioCtx.destination);
+
+      return () => {
+        equlizerAudioObj.disconnect(filters[0]);
+        filters[filters.length - 1].disconnect(audioCtx.destination);
+      };
     }
   }, [ranges, playPauseSwitch, audioCtx]);
-
   return <div></div>;
 }
 

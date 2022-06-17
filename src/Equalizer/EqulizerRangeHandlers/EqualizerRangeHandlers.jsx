@@ -40,44 +40,12 @@ function EqualizerRangeHandlers() {
   const [range14000, setRange14000] = useState(0);
   const [range16000, setRange16000] = useState(0);
 
-  // Передаем значения ползунко в компонент эквалайзера
-  const getValus = useCallback(() => {
-    //массив значений ползунквов в эквалайзера
-    let allRangeValues = [
-      range60,
-      range170,
-      range310,
-      range600,
-      range1000,
-      range3000,
-      range6000,
-      range12000,
-      range14000,
-      range16000,
-    ];
+  React.useEffect(() => {
+    let allRangeValues = [range60, range170];
 
     // Передаем значение полей ползунков эквалайзера в redux
     dispatch(getEqualaizerRangesArr(allRangeValues));
-  }, [
-    range60,
-    range170,
-    range310,
-    range600,
-    range1000,
-    range3000,
-    range6000,
-    range12000,
-    range14000,
-    range16000,
-    dispatch,
-  ]);
-
-  useEffect(() => {
-    getValus();
-  }, [getValus]);
-
-  // Передаем парамтеры ползунков в localStoradge
-  React.useEffect(() => {}, []);
+  }, [range60, range170, dispatch]);
 
   return (
     <div className="equlizer-handlers__wraper">
@@ -85,7 +53,7 @@ function EqualizerRangeHandlers() {
         <EqualizerScaleRange high={20} middle={0} low={"-20"} />
         <div
           className="equlizer-handlers__element"
-          onClick={(elem) => {
+          onChange={(elem) => {
             setRange60(elem.target.value);
           }}
         >
