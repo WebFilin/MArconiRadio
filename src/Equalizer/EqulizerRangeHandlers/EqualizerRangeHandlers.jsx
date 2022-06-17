@@ -63,7 +63,7 @@ function EqualizerRangeHandlers() {
         <EqualizerScaleRange high={"-"} middle={"-"} low={"-"} />
         <div
           className="equlizer-handlers__element"
-          onClick={(elem) => {
+          onChange={(elem) => {
             setRange170(elem.target.value);
           }}
         >
@@ -73,7 +73,7 @@ function EqualizerRangeHandlers() {
         <EqualizerScaleRange high={"-"} middle={"-"} low={"-"} />
         <div
           className="equlizer-handlers__element"
-          onClick={(elem) => {
+          onChange={(elem) => {
             setRange310(elem.target.value);
           }}
         >
@@ -83,7 +83,7 @@ function EqualizerRangeHandlers() {
         <EqualizerScaleRange high={"-"} middle={"-"} low={"-"} />
         <div
           className="equlizer-handlers__element"
-          onClick={(elem) => {
+          onChange={(elem) => {
             setRange600(elem.target.value);
           }}
         >
@@ -93,7 +93,7 @@ function EqualizerRangeHandlers() {
         <EqualizerScaleRange high={"-"} middle={"-"} low={"-"} />
         <div
           className="equlizer-handlers__element"
-          onClick={(elem) => {
+          onChange={(elem) => {
             setRange1000(elem.target.value);
           }}
         >
@@ -103,7 +103,7 @@ function EqualizerRangeHandlers() {
         <EqualizerScaleRange high={"-"} middle={"-"} low={"-"} />
         <div
           className="equlizer-handlers__element"
-          onClick={(elem) => {
+          onChange={(elem) => {
             setRange3000(elem.target.value);
           }}
         >
@@ -113,7 +113,7 @@ function EqualizerRangeHandlers() {
         <EqualizerScaleRange high={"-"} middle={"-"} low={"-"} />
         <div
           className="equlizer-handlers__element"
-          onClick={(elem) => {
+          onChange={(elem) => {
             setRange6000(elem.target.value);
           }}
         >
@@ -123,7 +123,7 @@ function EqualizerRangeHandlers() {
         <EqualizerScaleRange high={"-"} middle={"-"} low={"-"} />
         <div
           className="equlizer-handlers__element"
-          onClick={(elem) => {
+          onChange={(elem) => {
             setRange12000(elem.target.value);
           }}
         >
@@ -133,7 +133,7 @@ function EqualizerRangeHandlers() {
         <EqualizerScaleRange high={"-"} middle={"-"} low={"-"} />
         <div
           className="equlizer-handlers__element"
-          onClick={(elem) => {
+          onChange={(elem) => {
             setRange14000(elem.target.value);
           }}
         >
@@ -143,7 +143,7 @@ function EqualizerRangeHandlers() {
         <EqualizerScaleRange high={"-"} middle={"-"} low={"-"} />
         <div
           className="equlizer-handlers__element"
-          onClick={(elem) => {
+          onChange={(elem) => {
             setRange16000(elem.target.value);
           }}
         >

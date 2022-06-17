@@ -143,7 +143,6 @@ function NewEqualizer({ audioObj, audioCtx }) {
       // Управляем усилинием частот фильтра через ползунки эквалайзера
       // через isFinite убираем баг с типом значения с плавающией запятой и протяжкой ползунка вместо клика
       filters[0].gain.value = isFinite(ranges[0]) ? Number(ranges[0]) : 0;
-
       filters[1].gain.value = isFinite(ranges[1]) ? Number(ranges[1]) : 0;
       filters[2].gain.value = isFinite(ranges[2]) ? Number(ranges[2]) : 0;
       filters[3].gain.value = isFinite(ranges[3]) ? Number(ranges[3]) : 0;
