@@ -10,7 +10,7 @@ function StationsDefaultUp(props) {
       <div className='default-stations-lists__wraper'>
 
          <div className="default-stations__wraper-up">
-            <Station dot={"down"} min={0} max={5} contryName={"France"} />
+            <Station dot={"down"} min={0} max={5} contryName={"Canada"} />
             <Station dot={"down"} min={11} max={14} contryName={"America"} />
             <Station dot={"down"} min={20} max={22} contryName={"Japan"} />
             <Station dot={"down"} min={28} max={31} contryName={"Mongolia"} />

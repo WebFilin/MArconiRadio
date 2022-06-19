@@ -41,7 +41,7 @@ function App() {
         <Route path="/" element={<MainLayout />} />
       </Routes>
 
-      {/* Комопнент воспроизведения звука, soundPower громкость в % до 100 */}
+      {/* Комопнент воспроизведения звука */}
       <AudioController />
     </div>
   );

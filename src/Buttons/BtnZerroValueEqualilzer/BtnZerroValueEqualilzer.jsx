@@ -5,15 +5,14 @@ import "./btnZerroValueEqualilzer.css";
 import { useSelector } from "react-redux";
 
 function BtnZerroValueEqualilzer({ isDisabled }) {
+  // Получаем массив значений полузнков эквалайзера
   const arrValuesRange = useSelector((state) => state.equalizer.rangeValueArr);
 
+  //   Отключаем включаем кнопку
   const [isActiveBtn, setIsActiveBtn] = React.useState(false);
 
-  //   console.log(arrValuesRange);
-
-  console.log(isDisabled);
-
   React.useEffect(() => {
+    // Если ползунок был сдвинут кнопка сброса активируется
     arrValuesRange.map((elem) => {
       if (Number(elem) !== 0) {
         setIsActiveBtn(true);
@@ -21,6 +20,7 @@ function BtnZerroValueEqualilzer({ isDisabled }) {
       return null;
     });
 
+    //  Переключаем состояние кнопки
     if (isDisabled) {
       setIsActiveBtn(false);
     }
