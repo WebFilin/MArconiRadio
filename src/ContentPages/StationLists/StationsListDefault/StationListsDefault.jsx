@@ -29,7 +29,7 @@ function StationListsDefault() {
       setNumStation(0);
     } else if (valueScroll === 11) {
       setCountry("US");
-      setNumStation(2);
+      setNumStation(3);
     } else if (valueScroll === 15) {
       setCountry("DE");
       setNumStation(2);
@@ -40,17 +40,17 @@ function StationListsDefault() {
       setCountry("IT");
       setNumStation(3);
     } else if (valueScroll === 30) {
-      setCountry("MN");
+      setCountry("AW");
       setNumStation(0);
     } else if (valueScroll === 35) {
-      setCountry("CZ");
-      setNumStation(2);
+      setCountry("NO");
+      setNumStation(4);
     } else if (valueScroll === 39) {
-      setCountry("AD");
-      setNumStation(1);
-    } else if (valueScroll === 43) {
-      setCountry("PA");
+      setCountry("MT");
       setNumStation(2);
+    } else if (valueScroll === 43) {
+      setCountry("ES");
+      setNumStation(1);
     }
 
     dispatch(getStationParams(stationParams));
