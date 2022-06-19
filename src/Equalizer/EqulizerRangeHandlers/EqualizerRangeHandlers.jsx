@@ -42,6 +42,7 @@ function EqualizerRangeHandlers() {
   const [range14000, setRange14000] = useState(0);
   const [range16000, setRange16000] = useState(0);
 
+  //   Сбрасываем value range в 0
   const [rangeValueZerro, setRangeValueZerro] = React.useState(false);
 
   // Передаем значение полей ползунков эквалайзера в redux
@@ -58,6 +59,7 @@ function EqualizerRangeHandlers() {
       range14000,
       range16000,
     ];
+
     dispatch(getEqualaizerRangesArr(arrRangesValue));
   }, [
     dispatch,
@@ -247,7 +249,7 @@ function EqualizerRangeHandlers() {
       </div>
 
       <div className="equlizer-handlers__btn-zerro" onClick={rangeValuesZerro}>
-        <BtnZerroValueEqualilzer />
+        <BtnZerroValueEqualilzer isDisabled={rangeValueZerro} />
       </div>
     </div>
   );
